@@ -102,3 +102,14 @@ function endSession(){
 function updateTimerCountdown(){
   view.document.getElementsByClassName('countdown').innerHTML =currentInterval;
 }
+
+function sendInfoToDatabase(){
+  $.ajax({
+    url: 'http://localhost:9393/sessions/data',
+    type: 'post',
+    data: {sessions}
+  })
+  .done(function(data){
+    console.log(data);
+  })
+}
