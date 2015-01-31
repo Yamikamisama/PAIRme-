@@ -25,6 +25,19 @@ $(document).ready(function(){
     }
   });
 
+  $('.exit_session').on('click', function(){
+    if(currentSession.timeWorked === 0){
+      endSession();
+    }
+    activeTime = 0;
+    inActiveTime = 0;
+    sessions.forEach(function(pairSession){
+      activeTime += pairSession.timeWorked;
+      inActiveTime += pairSession.timePaused;
+    })
+    sessions.push(TotalSessionInfo(activeTime, inActiveTime));
+  })
+
   function PairingSession(user1, user2){
     this.drive = user1;
     this.navigate = user2;
