@@ -13,5 +13,9 @@ post '/session' do
 	else 
 		500 
 	end 
-	
+
 end 
+
+post '/session/data' do 
+	session = Session.
+end
