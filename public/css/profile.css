@@ -17,3 +17,26 @@
 	height: auto;
 	padding-left: 10%;
 }
+
+#profile_wrapper{
+	display: table;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  color: #fff;
+	background: url(../img/profile.jpg) no-repeat;
+  background-color: rgba(128,128,128, 0.7);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+#user_pairs h2{
+
+}
+
+
+
+
+
