@@ -80,11 +80,14 @@ class Feedback
 end
 
 class Session
+  attr_accessor :student1, :student2, :feedback
   def initialize(args)
     @student1 = args[0]
     @student2 = args[1]
-    @id1 = args[0].id
-    @id2 = args[1].id
+  end
+
+  def add_feedback(feedback)
+    self.feedback = feedback
   end
 end
 
@@ -100,8 +103,10 @@ squirrels.add(justin, rayan, kevin)
 squirrels.remove(kevin)
 
 # p MakePair.random_pair(squirrels)
-p MakePair.select_pair(ivan, lucas)
+p new_session = MakePair.select_pair(ivan, lucas)
 
 to_ivan = Feedback.new(student: ivan, q1: 4, q2: 3, q3: 4, text: "Good sesh but please shower before classes.")
 
+new_session.add_feedback(to_ivan)
 
+p new_session.feedback
