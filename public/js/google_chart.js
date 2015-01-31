@@ -1,19 +1,20 @@
+google.load("visualization", "1", {packages:["corechart"]});
 google.setOnLoadCallback(drawChart);
-  function drawChart() {
+function drawChart() {
+  var data = new google.visualization.arrayToDataTable([
+    ['Driver', 'Navigator'],
+    ['Driver',     11],
+    ['Navigator',      2]
+  ]);
 
-    var data = google.visualization.arrayToDataTable([
-      ['Effort', 'Amount given'],
-      ['My all',     100],
-    ]);
+  var options = {
+    title: 'My Daily Activities',
+    pieHole: 0.4,
+    background:'transparent',
+  };
 
-    var options = {
-      pieHole: 0.5,
-      pieSliceTextStyle: {
-        color: 'black',
-      },
-      legend: 'none'
-    };
+  var chart = new google.visualization.PieChart(document.getElementById('donut_single'));
+  chart.draw(data, options);
+  $('rect').attr('fill', 'none');
+}
 
-    var chart = new google.visualization.PieChart(document.getElementById('donut_single'));
-    chart.draw(data, options);
-  }
