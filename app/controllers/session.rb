@@ -17,5 +17,8 @@ post '/session' do
 end 
 
 post '/session/data' do 
-	session = Session.
+	session = Session.find_by(user1: 
+
+	cur_session = session.pop 
+	cur_session.update(:active , :downtime, :duration)
 end

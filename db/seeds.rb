@@ -6,7 +6,8 @@ organization = Organization.create(name: "DBC")
   Organization.create(name: Faker::Company.name)
 end
 
-user = User.create(email: 'steph@steph.com', password: '123456', driver: 5, navigator: 5, organization_id: 1)
+user1 = User.create(email: 'steph@steph.com', password: '123456', driver: 5, navigator: 5, organization_id: 1)
+user2 = User.create(email: 'me@me.com', password: '123456', driver: 5, navigator: 5, organization_id: 3)
 
 9.times do
   User.create(email: Faker::Internet.email, password: '123456', driver: 3, navigator: 4, organization_id: 3)
