@@ -10,5 +10,5 @@
     "browser_action": {
         // "default_icon": Place path to extension icon here
     },
-        // "options_page": "/dashboard/dashboard.html"
+    // "options_page": "Place path to 'landing page' here"
 }
