@@ -1,0 +1,19 @@
+#user_image img{
+	width: 100%;
+	height: auto;
+	border-radius: 100%;
+	padding:10%;
+}
+
+#user_header h1 {
+	width: 100%;
+	height: auto;
+	padding:10% 10% 0 10%;
+
+}
+
+#user_header h2 {
+	width: 100%;
+	height: auto;
+	padding-left: 10%;
+}
