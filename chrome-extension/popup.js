@@ -20,14 +20,25 @@ $(document).ready(function(){
   });
 
   $('.pause_button').on('click', function(){
+    if(timer){
+      window.clearInterval(timer);
+      timer = null;
+    } else {
+      startTimerCount();
+    }
+  });
 
-  })
-
-  function PairingSession(){
+  function PairingSession(user1, user2){
     this.drive = user1;
     this.navigate = user2;
-    this.timeWorked;
-    this.timePaused;
+    this.timeWorked = 0;
+    this.timePaused = 0;
+  }
+
+  function TotalSessionInfo(activeTime, pauseTime){
+    this.totalTime = pauseTime + activeTime;
+    this.activeTime = activeTime;
+    this.pauseTime = pauseTime;
   }
 
   function startTimerCount(){
