@@ -19,6 +19,13 @@ class User
     @id = args[:id]
     @name = args[:name]
   end
+
+  # def paired_with(student)
+  #   pair_to_look_for = [self.id, student.id]
+
+  #   Session.where((student1.id == pair_to_look_for[0] && student2.id == pair_to_look_for[1]) || (student1.id == pair_to_look_for[1] && student2.id == pair_to_look_for[0]))
+
+  # end
 end
 
 class Organization
