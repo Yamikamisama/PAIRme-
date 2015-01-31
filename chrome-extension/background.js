@@ -67,8 +67,8 @@ function startTimerCount(){
     currentInterval --;
     updateTimerCountdown();
     checkDuration();
-    clearTimeout(timer)
-    startTimerCount()
+    clearTimeout(timer);
+    startTimerCount();
   }, 60000);
   console.log(timer);
 }
