@@ -11,5 +11,8 @@
         // "default_icon": ["Place path to extension icon here"],
         // "default_popup": ["place path to popup view here"]
     },
+    "permissions":[
+        "activeTab"
+    ],
     // "options_page": "Place path to 'landing page' here"
 }
