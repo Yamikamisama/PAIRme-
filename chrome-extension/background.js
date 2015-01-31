@@ -48,6 +48,7 @@ function endPairingSession(){
   stopTimer();
   sessions.push(new TotalSessionInfo(activeTime, inActiveTime));
   currentView = null;
+  sendInfoToDatabase();
 }
 
 function startPairing(){
