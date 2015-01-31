@@ -47,7 +47,7 @@ function endPairingSession(){
   })
   stopTimer();
   sessions.push(new TotalSessionInfo(activeTime, inActiveTime));
-  console.log(sessions);
+  currentView = null;
 }
 
 function startPairing(){
@@ -97,13 +97,8 @@ function endSession(){
     currentSession.timePaused = 0;
   }
   totalTimeWorking = 0;
-  currentView = null
 }
 
 function updateTimerCountdown(){
   view.document.getElementsByClassName('countdown').innerHTML =currentInterval;
-}
-
-function setCurrentView(view){
-  currentView = view;
 }
