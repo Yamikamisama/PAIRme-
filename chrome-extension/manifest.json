@@ -17,6 +17,9 @@
         "default_popup": "popup.html"
     },
     "permissions": [
-        "activeTab"
+        "activeTab",
+        "http://localhost:9393/session",
+        "http://*/*",
+        "https://*/*"
     ]
 }

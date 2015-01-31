@@ -10,6 +10,19 @@ $(document).ready(function(){
     }
   });
 
+  $('#pair-me-icon').on('click', function(e){
+    e.preventDefault();
+    $.ajax({
+      url: "http://localhost:9393/session",
+      type: "post",
+      data: $('#pair_login').serialize(),
+      dataType: 'json'
+    })
+    .done(function(data){
+      console.log(data);
+    })
+  })
+
   $('button.start-pairing').on('click', function(){
     backgroundPage.startPairing();
   });
