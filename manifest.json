@@ -8,7 +8,7 @@
         "persistent": true
     },
     "browser_action": {
-        // "default_icon": "PP_logo.png"
+        // "default_icon": Place path to extension icon here
     },
     "content_scripts": [{
             "matches": ["http://www.youtube.com/*", "https://www.youtube.com/*"],
