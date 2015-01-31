@@ -1,0 +1,27 @@
+{
+    "manifest_version": 1,
+    "name": "A DBC Team",
+    "description": "Help DBC students Pair Program",
+    "version": "1.0",
+    "background": {
+        "scripts": [ "popup.js"],
+        "persistent": true
+    },
+    "browser_action": {
+        // "default_icon": "PP_logo.png"
+    },
+    "content_scripts": [{
+            "matches": ["http://www.youtube.com/*", "https://www.youtube.com/*"],
+            "all_frames": true,
+            "js": ["widget/widget.js", "widget/pinpoint-notes-presenter.js"],
+            "css": ["/widget/widget.css"],
+            "run_at":"document_start"
+            }],
+    // "permissions": [
+    //     "storage",
+    //     "tabs",
+    //     "http://www.youtube.com/*",
+    //     "https://www.youtube.com/*"
+    // ],
+    // "options_page": "/dashboard/dashboard.html"
+}
