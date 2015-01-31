@@ -48,6 +48,6 @@ $(document).ready(function(){
       $(currentView).show();
     }
   }
-  console.log(backgroundPage.currentView);
+
   setPopupView();
 });

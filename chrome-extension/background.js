@@ -1,4 +1,4 @@
-var user1, user2, currentSession, startTime, endTime, currentInterval,pairingDurationMs, timer, view, currentView;
+var user1, user2, currentSession, startTime, endTime, currentInterval,pairingDurationMs, timer, popup, currentView;
 var sessions = [];
 var totalTimeWorking = 0;
 
@@ -19,7 +19,7 @@ function TotalSessionInfo(activeTime, pauseTime){
 
 function getPopup(){
   var views = chrome.extension.getViews({ type: "popup" });
-  view = views[0];
+  popup = views[0];
 }
 
 function setInterval(interval){
@@ -71,7 +71,6 @@ function startTimerCount(){
     clearTimeout(timer);
     startTimerCount();
   }, 60000);
-  console.log(timer);
 }
 
 function stopTimer(){
@@ -101,16 +100,18 @@ function endSession(){
 }
 
 function updateTimerCountdown(){
-  view.document.getElementsByClassName('countdown').innerHTML =currentInterval;
+  popup.document.getElementsByClassName('countdown').innerHTML =currentInterval;
 }
 
 function sendInfoToDatabase(){
   $.ajax({
-    url: 'http://localhost:9393/sessions/data',
+    url: 'http://localhost:9393/session/data',
     type: 'post',
-    data: {sessions}
+    data: {session: sessions}
   })
   .done(function(data){
-    console.log(data);
-  })
-}
+    console.log('hello');
+    sessions = [];
+    // chrome.tabs.create({url: data['url']})
+  });
+};
