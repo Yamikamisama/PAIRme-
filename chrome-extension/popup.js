@@ -51,6 +51,7 @@ $(document).ready(function(){
   function checkDuration(){
     if(currentInterval === 0){
       currentInterval = pairingDurationMs / 60000;
+      currentSession.timeWorked = 20;
       alert('Switch it ^');
     }
   }
