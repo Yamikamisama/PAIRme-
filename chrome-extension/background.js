@@ -17,6 +17,11 @@ function TotalSessionInfo(activeTime, pauseTime){
   this.user2 = user2;
 }
 
+function getPopup(){
+  var views = chrome.extension.getViews({ type: "popup" });
+  view = views[0];
+}
+
 function setInterval(interval){
   currentInterval = interval;
   pairingDurationMs = currentInterval * 60000;

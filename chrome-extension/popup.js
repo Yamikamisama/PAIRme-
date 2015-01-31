@@ -21,6 +21,6 @@ $(document).ready(function(){
   $('.exit-pairing').on('click', function(){
     backgroundPage.endPairingSession();
   });
-
+  backgroundPage.getPopup();
   backgroundPage.updateTimerCountdown();
 });
