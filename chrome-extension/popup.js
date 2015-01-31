@@ -65,6 +65,7 @@ $(document).ready(function(){
     sessions.push(currentSession);
     console.log(sessions);
     startTimerCount();
+    updateTimerCountdown();
   }
 
   function startTimerCount(){
@@ -98,17 +99,15 @@ $(document).ready(function(){
     endTime = date.getTime();
     currentInterval = pairingDurationMs / 60000;
     currentSession.timeWorked = currentInterval;
-    console.log(startTime);
-    console.log(endTime);
-    currentSession.timePaused =  (endTime - startTime - totalTimeWorking) * 60000;
-    if(currentSession.timePaused == null){
+    currentSession.timePaused =  (endTime - startTime - (totalTimeWorking * 60000)) / 60000;
+    if(currentSession.timePaused == null || currentSession.timePaused < .1){
       currentSession.timePaused = 0;
     }
     totalTimeWorking = 0;
   }
 
   function updateTimerCountdown(){
-    $('.countdown').val(currentInterval);
+    $('.countdown').html(currentInterval);
   }
 });
 
