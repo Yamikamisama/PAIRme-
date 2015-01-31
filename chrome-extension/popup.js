@@ -19,9 +19,7 @@ $(document).ready(function(){
 
   $('.pause-pairing').on('click', function(){
     if(timer){
-      console.log("pause");
-      window.clearInterval(timer);
-      timer = null;
+      stopTimer();
     } else {
       console.log("unpause");
       startTimerCount();
@@ -39,8 +37,7 @@ $(document).ready(function(){
       activeTime += pairSession.timeWorked;
       inActiveTime += pairSession.timePaused;
     })
-    window.clearInterval(timer);
-    timer = null;
+    stopTimer();
     sessions.push(new TotalSessionInfo(activeTime, inActiveTime));
     console.log(sessions);
   })
@@ -78,10 +75,13 @@ $(document).ready(function(){
       updateTimerCountdown();
       checkDuration();
     }, 60000);
+    console.log(timer);
   }
 
   function stopTimer(){
-    window.clearInterval(timer);
+    console.log("timer", timer);
+    clearInterval(timer);
+    timer = null;
   }
 
   function checkDuration(){
