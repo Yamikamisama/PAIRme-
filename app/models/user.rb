@@ -38,6 +38,16 @@ class Organization
   end
 end
 
+class Rating
+  def initialize(args)
+    @rating1 = args[:q1]
+    @rating2 = args[:q2]
+    @rating3 = args[:q3]
+
+  end
+end
+
+
 ivan = Student.new(name: "Ivan Birkman")
 lucas = Student.new(name: "Lucas Santos")
 justin = Student.new(name: "Justin Gaba")
@@ -66,10 +76,6 @@ module Session
   end
 end
 
-module Rating
-  class << self
-  end
-end
 
 # p Session.random_pair(squirrels)
 # p Session.select_pair(ivan, lucas, squirrels)
