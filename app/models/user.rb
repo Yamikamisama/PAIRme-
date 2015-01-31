@@ -33,7 +33,7 @@ class Organization
   end
 
   def remove(student)
-
+    members.delete(*student)
   end
 end
 
@@ -44,7 +44,9 @@ rayan = Student.new(name: "Rayan Boutaleb")
 kevin = Student.new(name: "Kevin Alwell")
 
 squirrels = Organization.new(ivan, lucas)
-squirrels.add(justin)
+squirrels.add(justin, rayan, kevin)
+squirrels.remove(kevin)
+
 
 module Session
   class << self
@@ -53,5 +55,3 @@ module Session
     end
   end
 end
-
-p squirrels
