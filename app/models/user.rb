@@ -13,8 +13,9 @@ class User < ActiveRecord::Base
 # end
 
 class Student
-  attr_reader :name
+  attr_reader :id, :name
   def initialize(args)
+    @id = args[:id]
     @name = args[:name]
   end
 end
@@ -39,52 +40,68 @@ class Organization
 end
 
 class Feedback
-  attr_reader :rating1, :rating2, :rating3, :text
+  attr_reader :student, :rating1, :rating2, :rating3, :text, :all_ratings
   def initialize(args)
+    @student = args[:student]
     @rating1 = args[:q1]
     @rating2 = args[:q2]
     @rating3 = args[:q3]
     @text = args[:text]
-  end
-
-  def all_ratings
-    [rating1, rating2, rating3]
+    @all_ratings = [@rating1, @rating2, @rating3]
   end
 
   def average
-
+    all_ratings.reduce(:+) / all_ratings.length
   end
+
+  def driver_score
+    rating1
+  end
+
+  def navigator_score
+    rating2
+  end
+
+  def overall_score
+    rating3
+  end
+
 end
 
 
-ivan = Student.new(name: "Ivan Birkman")
-lucas = Student.new(name: "Lucas Santos")
-justin = Student.new(name: "Justin Gaba")
-rayan = Student.new(name: "Rayan Boutaleb")
-kevin = Student.new(name: "Kevin Alwell")
+ivan = Student.new(id: 1, name: "Ivan Birkman")
+lucas = Student.new(id: 2, name: "Lucas Santos")
+justin = Student.new(id: 3, name: "Justin Gaba")
+rayan = Student.new(id: 4, name: "Rayan Boutaleb")
+kevin = Student.new(id: 5, name: "Kevin Alwell")
 
 squirrels = Organization.new(ivan, lucas)
 squirrels.add(justin, rayan, kevin)
 squirrels.remove(kevin)
 
+to_ivan = Feedback.new(student: ivan, q1: 4, q2: 3, q3: 4, text: "Good sesh but please shower before classes.")
 
-module Session
-  class << self
-    def random_pair(organization)
-      organization.members.sample(2)
-    end
 
-    def select_pair(student1, student2, organization)
-      pair = []
-      organization.members.each do |student|
-        pair << student if student == student1
-        pair << student if student == student2
-      end
-      pair
+class Session
+  def initialize(student1, student2)
+
+  end
+
+
+  def self.random_pair(organization)
+    organization.members.sample(2)
+  end
+
+  def self.select_pair(student1, student2, organization)
+    pair = []
+    organization.members.each do |student|
+      pair << student if student == student1
+      pair << student if student == student2
     end
+    pair
   end
 end
 
 
-# p Session.random_pair(squirrels)
+p Session.random_pair(squirrels)
 # p Session.select_pair(ivan, lucas, squirrels)
