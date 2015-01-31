@@ -3,6 +3,7 @@ $(document).ready(function(){
   var sessions = [];
   var totalTimeWorking = 0;
 
+
   $('button.duration-button').on('click', function(event){
     event.preventDefault();
     if($('input.duration').val() !== "" ){
@@ -17,6 +18,7 @@ $(document).ready(function(){
     startPairing();
   });
 
+
   $('.pause-pairing').on('click', function(){
     if(timer){
       stopTimer();
@@ -25,6 +27,7 @@ $(document).ready(function(){
       startTimerCount();
     }
   });
+
 
   $('.exit-pairing').on('click', function(){
     console.log('exit');
@@ -40,6 +43,7 @@ $(document).ready(function(){
     stopTimer();
     sessions.push(new TotalSessionInfo(activeTime, inActiveTime));
     console.log(sessions);
+
   })
 
   function PairingSession(user1, user2){
@@ -71,12 +75,10 @@ $(document).ready(function(){
   function startTimerCount(){
     timer = setInterval(function(){
       totalTimeWorking ++;
-      console.log(totalTimeWorking)
       currentInterval --;
       updateTimerCountdown();
       checkDuration();
     }, 60000);
-    console.log(timer);
   }
 
   function stopTimer(){
@@ -86,7 +88,6 @@ $(document).ready(function(){
   }
 
   function checkDuration(){
-    console.log(currentInterval);
     if(currentInterval === 0){
       endSession();
       alert('Switch it ^');
