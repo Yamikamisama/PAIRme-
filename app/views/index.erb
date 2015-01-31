@@ -25,6 +25,7 @@
                         <li>
                             <a class="page-scroll" href="#download">Download</a>
                         </li>
+                        <!-- SignIn Modal -->
                         <li>
                             <a href="#" data-toggle="modal" data-target="#basicModal">Sign In</a>
                             <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
@@ -35,7 +36,10 @@
                                             <h4 class="modal-title" id="myModalLabel">Modal title</h4>
                                         </div>
                                         <div class="modal-body">
-                                            <h3>Modal Body</h3>
+                                            <form action=/signup method="POST">
+                                              <input type="text" name="user[email]" placeholder="email">
+                                              <input type="password" name="user[password]" placeholder="password"> 
+                                            </form>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -45,6 +49,7 @@
                                 </div>
                             </div>
                         </li>
+                        <!-- LogIn Modal -->
                         <li>
                             <a href="#" data-toggle="modal" data-target="#basicModal">Login</a>
                             <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
@@ -55,7 +60,11 @@
                                             <h4 class="modal-title" id="myModalLabel">Modal title</h4>
                                         </div>
                                         <div class="modal-body">
-                                            <h3>Modal Body</h3>
+                                            <form action=/login method="POST">
+                                              <input type="text" name="user[email]" placeholder="email">
+                                              <input type="password" name="user[password]" placeholder="password"> 
+                                              <input type="text" name="user[quirk]" placeholder="Your quirk">
+                                            </form>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
