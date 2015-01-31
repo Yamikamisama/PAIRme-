@@ -34,6 +34,7 @@ class Organization
 
   def remove(student)
     members.delete(*student)
+    members.flatten!
   end
 end
 
@@ -50,8 +51,18 @@ squirrels.remove(kevin)
 
 module Session
   class << self
-    def random_pair(students)
-      students.sample(2)
+    def random_pair(organization)
+      organization.members.sample(2)
     end
+
+    def select_pair(student1, student2, organization)
+      organization.members.select { |student| student == student1 }
+    end
+
+
   end
 end
+
+
+# p Session.random_pair(squirrels)
+p Session.select_pair(ivan, lucas, squirrels)
