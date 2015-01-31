@@ -1,15 +1,6 @@
 $(document).ready(function(){
   var backgroundPage = chrome.extension.getBackgroundPage();
 
-  $('button.duration-button').on('click', function(event){
-    event.preventDefault();
-    if($('input.duration').val() !== "" ){
-      backgroundPage.setInterval(parseInt($('input.duration').val()))
-    } else {
-      alert("Please Enter A Real Number");
-    }
-  });
-
   $('#pair-me-icon').on('click', function(e){
     e.preventDefault();
     $.ajax({
@@ -19,12 +10,23 @@ $(document).ready(function(){
       dataType: 'json'
     })
     .done(function(data){
-      console.log(data);
+      backgroundPage.currentView = '.duration-form';
+      backgroundPage.user1 = data['user1']
+      backgroundPage.user2 = data['user2']
+      $('.sign-in').hide();
+      $('.duration-form').show();
     })
   })
 
   $('button.start-pairing').on('click', function(){
-    backgroundPage.startPairing();
+    if($('input.duration').val() !== "" ){
+      backgroundPage.setInterval(parseInt($('input.duration').val()))
+      backgroundPage.startPairing();
+    } else {
+      alert("Please Enter A Real Number");
+    }
+    backgroundPage.currentView='.running-session';
+    setPopupView();
   });
 
   $('.pause-pairing').on('click', function(){
@@ -36,4 +38,16 @@ $(document).ready(function(){
   });
   backgroundPage.getPopup();
   backgroundPage.updateTimerCountdown();
+
+  function setPopupView(){
+    var currentView = backgroundPage.currentView;
+    if(currentView){
+      $('.sign-in').hide();
+      $('.duration-form').hide();
+      $('.running-session').hide();
+      $(currentView).show();
+    }
+  }
+  console.log(backgroundPage.currentView);
+  setPopupView();
 });

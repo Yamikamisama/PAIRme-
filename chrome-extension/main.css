@@ -43,3 +43,12 @@ h6{
     color: #fff;
     background: rgba(255,255,255,.3);
 }
+.duration-form,
+.running-session{
+    display: none;
+}
+.countdown{
+    color: white;
+    font-size: 5em;
+    font-weight: bold;
+}
