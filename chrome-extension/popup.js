@@ -19,6 +19,10 @@ $(document).ready(function(){
     startTimerCount();
   });
 
+  $('.pause_button').on('click', function(){
+
+  })
+
   function PairingSession(){
     this.drive = user1;
     this.navigate = user2;
