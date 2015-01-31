@@ -1,8 +1,6 @@
-var user1, user2, currentSession, startTime, endTime, currentInterval,pairingDurationMs, timer;
+var user1, user2, currentSession, startTime, endTime, currentInterval,pairingDurationMs, timer, view;
 var sessions = [];
 var totalTimeWorking = 0;
-var views = chrome.extension.getViews({ type: "popup" })
-var view = views[0]
 
 function PairingSession(user1, user2){
   this.drive = user1;
