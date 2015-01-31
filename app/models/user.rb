@@ -38,11 +38,20 @@ class Organization
   end
 end
 
-class Rating
+class Feedback
+  attr_reader :rating1, :rating2, :rating3, :text
   def initialize(args)
     @rating1 = args[:q1]
     @rating2 = args[:q2]
     @rating3 = args[:q3]
+    @text = args[:text]
+  end
+
+  def all_ratings
+    [rating1, rating2, rating3]
+  end
+
+  def average
 
   end
 end
