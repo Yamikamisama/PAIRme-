@@ -1,11 +1,12 @@
-class User < ActiveRecord::Base
-  has_secure_password
+# class User < ActiveRecord::Base
+#   has_secure_password
 
-  validates :email, :password, presence: true
+#   validates :email, :password, presence: true
 
-  has_many :sessions
-  has_many :feedbacks
-  belongs_to :organization
+#   has_many :sessions
+#   has_many :feedbacks
+#   belongs_to :organization
+# end
 # class User < ActiveRecord::Base
 #   validates :username, :password, presence: true
 
@@ -24,25 +25,28 @@ class Organization
   attr_accessor :members
   def initialize(*student)
     @members = []
-    @members << student
-    @members.flatten!
+    if student.length == 1
+      @members << student[0]
+    else
+      @members = student
+    end
   end
 
   def add(*student)
-    members << student
-    members.flatten!
+    student.each { |stu| members << stu }
+    self
   end
 
   def remove(student)
     members.delete(*student)
-    members.flatten!
+    self
   end
 end
 
 module MakePair
-  def self.random_pair(organization)
-    two_random_students = organization.members.sample(2)
-    Session.new(two_random_students)
+  def self.random_pair(student1, organization)
+    random_student = organization.remove(student1).members.sample
+    Session.new([student1, random_student])
   end
 
   def self.select_pair(student1, student2)
@@ -80,14 +84,23 @@ class Feedback
 end
 
 class Session
-  attr_accessor :student1, :student2, :feedback
+  attr_accessor :student1, :student2, :feedback1, :feedback2
   def initialize(args)
     @student1 = args[0]
     @student2 = args[1]
   end
 
   def add_feedback(feedback)
-    self.feedback = feedback
+    pair_id = [self.student1.id, self.student2.id]
+
+    if pair_id[0] == feedback.student.id
+      self.feedback1 = feedback
+      pair_id.delete(feedback.student.id)
+    end
+    if pair_id[1] == feedback.student.id
+      self.feedback2 = feedback
+      pair_id.delete(feedback.student.id)
+    end
   end
 end
 
@@ -102,11 +115,16 @@ squirrels = Organization.new(ivan, lucas)
 squirrels.add(justin, rayan, kevin)
 squirrels.remove(kevin)
 
-# p MakePair.random_pair(squirrels)
-p new_session = MakePair.select_pair(ivan, lucas)
+MakePair.random_pair(ivan, squirrels)
+new_session = MakePair.select_pair(ivan, lucas)
 
 to_ivan = Feedback.new(student: ivan, q1: 4, q2: 3, q3: 4, text: "Good sesh but please shower before classes.")
+to_lucas = Feedback.new(student: lucas, q1: 4, q2: 3, q3: 4, text: "Good seeeeeeesh but please shower before classes.")
+to_rayan = Feedback.new(student: rayan, q1: 4, q2: 3, q3: 4, text: "Good seeeeeeesh but please shower before classes.")
 
 new_session.add_feedback(to_ivan)
-
-p new_session.feedback
+p new_session
+new_session.add_feedback(to_rayan)
+p new_session
+new_session.add_feedback(to_lucas)
+p new_session
