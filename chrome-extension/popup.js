@@ -17,16 +17,19 @@ $(document).ready(function(){
     startPairing();
   });
 
-  $('.pause_button').on('click', function(){
+  $('.pause-pairing').on('click', function(){
     if(timer){
+      console.log("pause");
       window.clearInterval(timer);
       timer = null;
     } else {
+      console.log("unpause");
       startTimerCount();
     }
   });
 
-  $('.exit_session').on('click', function(){
+  $('.exit-pairing').on('click', function(){
+    console.log('exit');
     if(currentSession.timeWorked === 0){
       endSession();
     }
@@ -36,7 +39,10 @@ $(document).ready(function(){
       activeTime += pairSession.timeWorked;
       inActiveTime += pairSession.timePaused;
     })
-    sessions.push(TotalSessionInfo(activeTime, inActiveTime));
+    window.clearInterval(timer);
+    timer = null;
+    sessions.push(new TotalSessionInfo(activeTime, inActiveTime));
+    console.log(sessions);
   })
 
   function PairingSession(user1, user2){
@@ -50,19 +56,24 @@ $(document).ready(function(){
     this.totalTime = pauseTime + activeTime;
     this.activeTime = activeTime;
     this.pauseTime = pauseTime;
+    this.user1 = user1;
+    this.user2 = user2;
   }
 
   function startPairing(){
     var date = new Date();
     startTime = date.getTime();
-    currentSession = PairingSession(user1, user2);
+    currentSession = new PairingSession(user1, user2);
+    console.log(currentSession);
     sessions.push(currentSession);
+    console.log(sessions);
     startTimerCount();
   }
 
   function startTimerCount(){
     timer = setInterval(function(){
       totalTimeWorking ++;
+      console.log(totalTimeWorking)
       currentInterval --;
       updateTimerCountdown();
       checkDuration();
@@ -74,6 +85,7 @@ $(document).ready(function(){
   }
 
   function checkDuration(){
+    console.log(currentInterval);
     if(currentInterval === 0){
       endSession();
       alert('Switch it ^');
@@ -86,7 +98,12 @@ $(document).ready(function(){
     endTime = date.getTime();
     currentInterval = pairingDurationMs / 60000;
     currentSession.timeWorked = currentInterval;
-    currentSession.timePaused = startTime - endTime - totalTimeWorking;
+    console.log(startTime);
+    console.log(endTime);
+    currentSession.timePaused =  (endTime - startTime - totalTimeWorking) * 60000;
+    if(currentSession.timePaused == null){
+      currentSession.timePaused = 0;
+    }
     totalTimeWorking = 0;
   }
 
