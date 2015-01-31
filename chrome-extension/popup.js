@@ -54,7 +54,8 @@ $(document).ready(function(){
   function startPairing(){
     var date = new Date();
     startTime = date.getTime();
-    currentSession = sessions.push(PairingSession(user1, user2));
+    currentSession = PairingSession(user1, user2);
+    sessions.push(currentSession);
     startTimerCount();
   }
 
@@ -83,8 +84,9 @@ $(document).ready(function(){
     var date = new Date();
     endTime = date.getTime();
     currentInterval = pairingDurationMs / 60000;
-    currentSession.timeWorked = 20;
-    currentSession.timePaused = startTime - endTime - currentInterval;
+    currentSession.timeWorked = currentInterval;
+    currentSession.timePaused = startTime - endTime - totalTimeWorking;
+    totalTimeWorking = 0;
   }
 
   function updateTimerCountdown(){
