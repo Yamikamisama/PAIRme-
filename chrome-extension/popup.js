@@ -1,6 +1,7 @@
 $(document).ready(function(){
-  var user1, user2, currentSession, startTime, endTime, currentInterval, totalTimeWorking, pairingDurationMs, timer;
+  var user1, user2, currentSession, startTime, endTime, currentInterval,pairingDurationMs, timer;
   var sessions = [];
+  var totalTimeWorking = 0;
 
   $('button.duration-button').on('click', function(event){
     event.preventDefault();
