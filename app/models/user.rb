@@ -56,13 +56,20 @@ module Session
     end
 
     def select_pair(student1, student2, organization)
-      organization.members.select { |student| student == student1 }
+      pair = []
+      organization.members.each do |student|
+        pair << student if student == student1
+        pair << student if student == student2
+      end
+      pair
     end
-
-
   end
 end
 
+module Rating
+  class << self
+  end
+end
 
 # p Session.random_pair(squirrels)
-p Session.select_pair(ivan, lucas, squirrels)
+# p Session.select_pair(ivan, lucas, squirrels)
