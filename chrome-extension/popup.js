@@ -2,7 +2,6 @@ $(document).ready(function(){
   var user1, user2, currentSession, startTime, endTime, currentInterval, totalTimeWorking, pairingDurationMs, timer;
   var sessions = [];
 
-
   $('button.duration-button').on('click', function(event){
     event.preventDefault();
     if($('input.duration').val() !== "" ){
@@ -12,10 +11,6 @@ $(document).ready(function(){
       alert("Please Enter A Real Number");
     }
   });
-
-  $('.pause_button').on('click', function(){
-
-  })
 
   $('button.start-pairing').on('click', function(){
     var date = new Date();
