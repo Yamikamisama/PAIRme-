@@ -29,8 +29,8 @@ $(document).ready(function(){
     if(currentSession.timeWorked === 0){
       endSession();
     }
-    activeTime = 0;
-    inActiveTime = 0;
+    var activeTime = 0;
+    var inActiveTime = 0;
     sessions.forEach(function(pairSession){
       activeTime += pairSession.timeWorked;
       inActiveTime += pairSession.timePaused;
