@@ -12,9 +12,9 @@ post '/session' do
 
 end
 
-# post '/session/data' do
-# 	session = Session.find_by(user1:
-
-# 	cur_session = session.pop
-# 	cur_session.update(:active , :downtime, :duration)
-# end
+post '/session/data' do
+	# p "8" * 30
+	# p params
+	# cur_session = params["session"].last_value
+	# cur_session.update(:active , :downtime, :duration)
+end
