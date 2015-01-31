@@ -6,6 +6,6 @@ get '/feedback' do
 	erb :feedback_form
 end
 
-get '/profile' do
+get '/profile/:id' do
 	erb :profile
 end
