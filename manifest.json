@@ -10,14 +10,7 @@
     "browser_action": {
         // "default_icon": Place path to extension icon here
     },
-    "content_scripts": [{
-            "matches": ["http://www.youtube.com/*", "https://www.youtube.com/*"],
-            "all_frames": true,
-            "js": ["widget/widget.js", "widget/pinpoint-notes-presenter.js"],
-            "css": ["/widget/widget.css"],
-            "run_at":"document_start"
-            }],
-    // "permissions": [
+        // "permissions": [
     //     "storage",
     //     "tabs",
     //     "http://www.youtube.com/*",
