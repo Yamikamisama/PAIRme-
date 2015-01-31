@@ -28,7 +28,7 @@
 
 
 
-                        <!-- SignIn Modal -->
+                        <!-- SignUp Modal -->
                         <li>
                             <!-- Button trigger modal -->
                             <a data-toggle="modal" href="#myModal1">Sign Up</a>
@@ -41,7 +41,7 @@
                                       <center><h2 class="modal-title">Sign up</h2></center>
                                   </div>
                                   <div class="modal-body">
-                                      <form action=/login method="POST">
+                                      <form action=/signup method="POST">
                                         <center>
                                           <h3>Email</h3>
                                           <input type="text" name="user[email]" placeholder="email"><br>
@@ -49,14 +49,15 @@
                                           <input type="password" name="user[password]" placeholder="password"><br>
                                           <h3>Quirk</h3>
                                           <input type="text" name="user[quirk]" placeholder="Your quirk">
+                                           <input type="submit" value="Sign Up" class="btn btn-default btn-lg">
                                         </center>
                                         <h3></h3>
                                       </form>
                                   </div>
                                   <div class="modal-footer">
-                                    <center>
+                                   <!--  <center>
                                       <button type="button" class="btn btn-default btn-lg">Sign Up</button>
-                                    </center>
+                                    </center> -->
                                   </div>
                               </div><!-- /.modal-content -->
                           </div><!-- /.modal-dialog -->
@@ -80,17 +81,18 @@
                               <center><h4 class="modal-title">Login</h4></center>
                           </div>
                           <div class="modal-body">
-                           <form action=/signup method="POST">
+                           <form action=/login method="POST">
                             <center>
                               <h3>Email</h3>
                               <input type="text" name="user[email]" placeholder="email">
                               <h3>Password</h3>
                               <input type="password" name="user[password]" placeholder="password">
+                              <input type="submit" value="Log In" class="btn btn-default btn-lg">
                             </center>
                           </form>
                       </div>
                       <div class="modal-footer">
-                          <center><button type="button" class="btn btn-default btn-lg">Login</button></center>
+                          <!-- <center><input type="submit" value="Log In" class="btn btn-default btn-lg"></center> -->
                       </div>
                   </div><!-- /.modal-content -->
               </div><!-- /.modal-dialog -->
