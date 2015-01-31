@@ -4,7 +4,7 @@
     "description": "Help DBC students Pair Program",
     "version": "1.0",
     "background": {
-        "scripts": [ "popup.js"],
+        "scripts": [ "background.js"],
         "persistent": false
     },
     "icons": {
@@ -12,7 +12,7 @@
     },
     "browser_action": {
         "default_icon": "icon.png"
-        // "default_popup": ["place path to popup view here"]
+        "default_popup": ["popup.html"]
     },
     "permissions":[
         "activeTab"
