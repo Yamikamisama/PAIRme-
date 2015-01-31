@@ -39,7 +39,6 @@ $(document).ready(function(){
     this.totalTime = pauseTime + activeTime;
     this.activeTime = activeTime;
     this.pauseTime = pauseTime;
-
   }
 
   function startTimerCount(){
