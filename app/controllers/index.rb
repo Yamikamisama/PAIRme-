@@ -2,6 +2,10 @@ get '/' do
   erb :index
 end
 
-get '/1' do
+get '/feedback' do
 	erb :feedback_form
+end
+
+get '/profile' do
+	erb :profile
 end
