@@ -38,18 +38,25 @@
                                   <div class="modal-content">
                                     <div class="modal-header">
                                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                      <h4 class="modal-title">Modal title</h4>
+                                      <center><h2 class="modal-title">Sign up</h2></center>
                                   </div>
                                   <div class="modal-body">
                                       <form action=/login method="POST">
-                                          <input type="text" name="user[email]" placeholder="email">
-                                          <input type="password" name="user[password]" placeholder="password">
+                                        <center>
+                                          <h3>Email</h3>
+                                          <input type="text" name="user[email]" placeholder="email"><br>
+                                          <h3>Password</h3>
+                                          <input type="password" name="user[password]" placeholder="password"><br>
+                                          <h3>Quirk</h3>
                                           <input type="text" name="user[quirk]" placeholder="Your quirk">
+                                        </center>
+                                        <h3></h3>
                                       </form>
                                   </div>
                                   <div class="modal-footer">
-                                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                      <button type="button" class="btn btn-primary">Save changes</button>
+                                    <center>
+                                      <button type="button" class="btn btn-default btn-lg">Sign Up</button>
+                                    </center>
                                   </div>
                               </div><!-- /.modal-content -->
                           </div><!-- /.modal-dialog -->
@@ -70,17 +77,20 @@
                           <div class="modal-content">
                             <div class="modal-header">
                               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                              <h4 class="modal-title">Modal title</h4>
+                              <center><h4 class="modal-title">Login</h4></center>
                           </div>
                           <div class="modal-body">
                            <form action=/signup method="POST">
+                            <center>
+                              <h3>Email</h3>
                               <input type="text" name="user[email]" placeholder="email">
+                              <h3>Password</h3>
                               <input type="password" name="user[password]" placeholder="password">
+                            </center>
                           </form>
                       </div>
                       <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary">Save changes</button>
+                          <center><button type="button" class="btn btn-default btn-lg">Login</button></center>
                       </div>
                   </div><!-- /.modal-content -->
               </div><!-- /.modal-dialog -->
