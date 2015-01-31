@@ -13,7 +13,7 @@ user = User.create(email: 'steph@steph.com', password: '123456', driver: 5, navi
 end
 
 
-session = Session.create(duration: 60, downtime: 30, active: 30)
+session = Session.create(duration: 60, downtime: 30, active: 30, user_id: 1)
 
 feedback = Feedback.create(q1: 4, q2: 3, q3: 5, text: "lallalala", user_id: 1, session_id: 1)
 
