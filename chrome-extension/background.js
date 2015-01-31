@@ -1,4 +1,4 @@
-var user1, user2, currentSession, startTime, endTime, currentInterval,pairingDurationMs, timer, view;
+var user1, user2, currentSession, startTime, endTime, currentInterval,pairingDurationMs, timer, view, currentView;
 var sessions = [];
 var totalTimeWorking = 0;
 
@@ -97,9 +97,13 @@ function endSession(){
     currentSession.timePaused = 0;
   }
   totalTimeWorking = 0;
+  currentView = null
 }
 
 function updateTimerCountdown(){
   view.document.getElementsByClassName('countdown').innerHTML =currentInterval;
 }
 
+function setCurrentView(view){
+  currentView = view;
+}
