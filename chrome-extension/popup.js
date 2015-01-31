@@ -13,10 +13,7 @@ $(document).ready(function(){
   });
 
   $('button.start-pairing').on('click', function(){
-    var date = new Date();
-    startTime = date.getTime();
-    currentSession = sessions.push(PairingSession(user1, user2));
-    startTimerCount();
+    startPairing();
   });
 
   $('.pause_button').on('click', function(){
@@ -39,6 +36,13 @@ $(document).ready(function(){
     this.totalTime = pauseTime + activeTime;
     this.activeTime = activeTime;
     this.pauseTime = pauseTime;
+  }
+
+  function startPairing(){
+    var date = new Date();
+    startTime = date.getTime();
+    currentSession = sessions.push(PairingSession(user1, user2));
+    startTimerCount();
   }
 
   function startTimerCount(){
