@@ -1,7 +1,7 @@
 body{
 	width:200px;
 	height:150px;
-	background-image: url("intro-bg.png") no-repeat bottom center scroll;
+	background-image:url('chrome-extension://cednndladeaobomjhaoiahnpjiiamkhj/intro-bg.png');
 }
 
 h1,
