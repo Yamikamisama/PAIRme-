@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 #   has_secure_password
 # end
 
-class Student
+class User
   attr_reader :id, :name
   def initialize(args)
     @id = args[:id]
@@ -36,6 +36,18 @@ class Organization
   def remove(student)
     members.delete(*student)
     members.flatten!
+  end
+end
+
+module MakePair
+  def self.random_pair(organization)
+    two_random_students = organization.members.sample(2)
+    Session.new(two_random_students)
+  end
+
+  def self.select_pair(student1, student2)
+    selected_pair = [student1, student2]
+    Session.new(selected_pair)
   end
 end
 
@@ -65,43 +77,31 @@ class Feedback
   def overall_score
     rating3
   end
+end
 
+class Session
+  def initialize(args)
+    @student1 = args[0]
+    @student2 = args[1]
+    @id1 = args[0].id
+    @id2 = args[1].id
+  end
 end
 
 
-ivan = Student.new(id: 1, name: "Ivan Birkman")
-lucas = Student.new(id: 2, name: "Lucas Santos")
-justin = Student.new(id: 3, name: "Justin Gaba")
-rayan = Student.new(id: 4, name: "Rayan Boutaleb")
-kevin = Student.new(id: 5, name: "Kevin Alwell")
+ivan = User.new(id: 1, name: "Ivan Birkman")
+lucas = User.new(id: 2, name: "Lucas Santos")
+justin = User.new(id: 3, name: "Justin Gaba")
+rayan = User.new(id: 4, name: "Rayan Boutaleb")
+kevin = User.new(id: 5, name: "Kevin Alwell")
 
 squirrels = Organization.new(ivan, lucas)
 squirrels.add(justin, rayan, kevin)
 squirrels.remove(kevin)
 
+# p MakePair.random_pair(squirrels)
+p MakePair.select_pair(ivan, lucas)
+
 to_ivan = Feedback.new(student: ivan, q1: 4, q2: 3, q3: 4, text: "Good sesh but please shower before classes.")
 
 
-class Session
-  def initialize(student1, student2)
-
-  end
-
-
-  def self.random_pair(organization)
-    organization.members.sample(2)
-  end
-
-  def self.select_pair(student1, student2, organization)
-    pair = []
-    organization.members.each do |student|
-      pair << student if student == student1
-      pair << student if student == student2
-    end
-    pair
-  end
-end
-
-
-p Session.random_pair(squirrels)
-# p Session.select_pair(ivan, lucas, squirrels)
