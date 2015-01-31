@@ -1,0 +1,35 @@
+ <form accept-charset="UTF-8" action="#" class="form-horizontal" id="new_user" method="post">
+
+
+ 	<div class="control-group">
+ 		<div clas="controls">
+ 			<div class="radio">
+ 				<label>
+ 					<input id="user_role_managing_editor" name="user[role]" type="radio" value="Managing editor">
+ 					Managing editor
+ 				</label>
+ 				<br>
+ 				<label>
+ 					<input id="user_role_area_editor" name="user[role]" type="radio" value="Area editor">
+ 					Area editor
+ 				</label>
+ 				<br>
+ 				<label>
+ 					<input id="user_role_author_or_referee" name="user[role]" type="radio" value="Author or referee">
+ 					Author/referee
+ 				</label>
+ 			</div>
+ 		</div>
+ 	</div>
+ 	<div class="control-group">
+ 		<label class="control-label" for="user_affiliation">A.S.K. Feedback</label>
+ 		<div class="controls">
+ 			<textarea id="user_affiliation" name="user[affiliation]" type="textarea" placeholder="Please submit Actionable, Specific, and Kind feedback"></textarea>
+ 		</div>
+ 	</div>
+
+ 	<div style="text-align: center;">
+ 		<input class="btn btn-primary" name="commit" type="submit" value="Register" />
+ 	</div>
+
+ </form>
