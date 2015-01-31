@@ -67,21 +67,24 @@ $(document).ready(function(){
     }, 60000);
   }
 
-  function calculatePauseTime(){
-    pause_time = endTime - startTime - totalTimeWorking;
-    currentSession.timePaused = pause_time;
-  }
-
   function stopTimer(){
     window.clearInterval(timer);
   }
 
   function checkDuration(){
     if(currentInterval === 0){
-      currentInterval = pairingDurationMs / 60000;
-      currentSession.timeWorked = 20;
+      endSession();
       alert('Switch it ^');
+      startPairing();
     }
+  }
+
+  function endSession(){
+    var date = new Date();
+    endTime = date.getTime();
+    currentInterval = pairingDurationMs / 60000;
+    currentSession.timeWorked = 20;
+    currentSession.timePaused = startTime - endTime - currentInterval;
   }
 
   function updateTimerCountdown(){
