@@ -1,35 +1,107 @@
- <form accept-charset="UTF-8" action="#" class="form-horizontal" id="new_user" method="post">
-
-
- 	<div class="control-group">
- 		<div clas="controls">
- 			<div class="radio">
- 				<label>
- 					<input id="user_role_managing_editor" name="user[role]" type="radio" value="Managing editor">
- 					Managing editor
- 				</label>
- 				<br>
- 				<label>
- 					<input id="user_role_area_editor" name="user[role]" type="radio" value="Area editor">
- 					Area editor
- 				</label>
- 				<br>
- 				<label>
- 					<input id="user_role_author_or_referee" name="user[role]" type="radio" value="Author or referee">
- 					Author/referee
- 				</label>
- 			</div>
- 		</div>
- 	</div>
- 	<div class="control-group">
- 		<label class="control-label" for="user_affiliation">A.S.K. Feedback</label>
- 		<div class="controls">
- 			<textarea id="user_affiliation" name="user[affiliation]" type="textarea" placeholder="Please submit Actionable, Specific, and Kind feedback"></textarea>
- 		</div>
- 	</div>
-
- 	<div style="text-align: center;">
- 		<input class="btn btn-primary" name="commit" type="submit" value="Register" />
- 	</div>
-
- </form>
+<h2>Give some feedback!</h2>
+                            <div class='control-group'>
+                            </div>
+                            <div class='control-group'>
+                                <div class='controls'>
+                                    <textarea class="span6 autogrow" cols="40" id="feedback_body" name="feedback[body]" placeholder="Type your feedback here.  Good feedback is specific, actionable, and kind." rows="20" style="height: 100px;padding:10px">
+                                    </textarea>
+                                </div>
+                            </div>
+                            <div class='questions'>
+                                <table class='table table-striped'>
+                                    <tr>
+                                        <td class='span6' style='vertical-align: middle;'>
+                                            <div class='question-body'>The culture of our team/pair benefitted from having STUDENT on it.</div>
+                                            <input id="feedback_responses_attributes_0_feedback_question_id" name="feedback[responses_attributes][0][feedback_question_id]" type="hidden" value="12" />
+                                        </td>
+                                        <td class='span1' style='text-align: center'>
+                                            <label for="feedback_responses_attributes_0_rating">Never</label>
+                                            <input id="feedback_responses_attributes_0_rating_-2" name="feedback[responses_attributes][0][rating]" type="radio" value="-2" />
+                                        </td>
+                                        <td class='span1' style='text-align: center'>
+                                            <label for="feedback_responses_attributes_0_rating">Rarely</label>
+                                            <input id="feedback_responses_attributes_0_rating_-1" name="feedback[responses_attributes][0][rating]" type="radio" value="-1" />
+                                        </td>
+                                        <td class='span1' style='text-align: center'>
+                                            <label for="feedback_responses_attributes_0_rating">Sometimes</label>
+                                            <input id="feedback_responses_attributes_0_rating_0" name="feedback[responses_attributes][0][rating]" type="radio" value="0" />
+                                        </td>
+                                        <td class='span1' style='text-align: center'>
+                                            <label for="feedback_responses_attributes_0_rating">Mostly</label>
+                                            <input id="feedback_responses_attributes_0_rating_1" name="feedback[responses_attributes][0][rating]" type="radio" value="1" />
+                                        </td>
+                                        <td class='span1' style='text-align: center'>
+                                            <label for="feedback_responses_attributes_0_rating">Always</label>
+                                            <input id="feedback_responses_attributes_0_rating_2" name="feedback[responses_attributes][0][rating]" type="radio" value="2" />
+                                        </td>
+                                        <td class='span1' style='text-align: center'>
+                                            <label for="feedback_responses_attributes_0_rating">n/a</label>
+                                            <input id="feedback_responses_attributes_0_rating_999" name="feedback[responses_attributes][0][rating]" type="radio" value="999" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class='span6' style='vertical-align: middle;'>
+                                            <div class='question-body'>I benefitted technically from having STUDENT on our pair/team.</div>
+                                            <input id="feedback_responses_attributes_1_feedback_question_id" name="feedback[responses_attributes][1][feedback_question_id]" type="hidden" value="14" />
+                                        </td>
+                                        <td class='span1' style='text-align: center'>
+                                            <label for="feedback_responses_attributes_1_rating">Never</label>
+                                            <input id="feedback_responses_attributes_1_rating_-2" name="feedback[responses_attributes][1][rating]" type="radio" value="-2" />
+                                        </td>
+                                        <td class='span1' style='text-align: center'>
+                                            <label for="feedback_responses_attributes_1_rating">Rarely</label>
+                                            <input id="feedback_responses_attributes_1_rating_-1" name="feedback[responses_attributes][1][rating]" type="radio" value="-1" />
+                                        </td>
+                                        <td class='span1' style='text-align: center'>
+                                            <label for="feedback_responses_attributes_1_rating">Sometimes</label>
+                                            <input id="feedback_responses_attributes_1_rating_0" name="feedback[responses_attributes][1][rating]" type="radio" value="0" />
+                                        </td>
+                                        <td class='span1' style='text-align: center'>
+                                            <label for="feedback_responses_attributes_1_rating">Mostly</label>
+                                            <input id="feedback_responses_attributes_1_rating_1" name="feedback[responses_attributes][1][rating]" type="radio" value="1" />
+                                        </td>
+                                        <td class='span1' style='text-align: center'>
+                                            <label for="feedback_responses_attributes_1_rating">Always</label>
+                                            <input id="feedback_responses_attributes_1_rating_2" name="feedback[responses_attributes][1][rating]" type="radio" value="2" />
+                                        </td>
+                                        <td class='span1' style='text-align: center'>
+                                            <label for="feedback_responses_attributes_1_rating">n/a</label>
+                                            <input id="feedback_responses_attributes_1_rating_999" name="feedback[responses_attributes][1][rating]" type="radio" value="999" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class='span6' style='vertical-align: middle;'>
+                                            <div class='question-body'>I would happily work with STUDENT again and would recommend them to others.</div>
+                                            <input id="feedback_responses_attributes_2_feedback_question_id" name="feedback[responses_attributes][2][feedback_question_id]" type="hidden" value="15" />
+                                        </td>
+                                        <td class='span1' style='text-align: center'>
+                                            <label for="feedback_responses_attributes_2_rating">Never</label>
+                                            <input id="feedback_responses_attributes_2_rating_-2" name="feedback[responses_attributes][2][rating]" type="radio" value="-2" />
+                                        </td>
+                                        <td class='span1' style='text-align: center'>
+                                            <label for="feedback_responses_attributes_2_rating">Rarely</label>
+                                            <input id="feedback_responses_attributes_2_rating_-1" name="feedback[responses_attributes][2][rating]" type="radio" value="-1" />
+                                        </td>
+                                        <td class='span1' style='text-align: center'>
+                                            <label for="feedback_responses_attributes_2_rating">Sometimes</label>
+                                            <input id="feedback_responses_attributes_2_rating_0" name="feedback[responses_attributes][2][rating]" type="radio" value="0" />
+                                        </td>
+                                        <td class='span1' style='text-align: center'>
+                                            <label for="feedback_responses_attributes_2_rating">Mostly</label>
+                                            <input id="feedback_responses_attributes_2_rating_1" name="feedback[responses_attributes][2][rating]" type="radio" value="1" />
+                                        </td>
+                                        <td class='span1' style='text-align: center'>
+                                            <label for="feedback_responses_attributes_2_rating">Always</label>
+                                            <input id="feedback_responses_attributes_2_rating_2" name="feedback[responses_attributes][2][rating]" type="radio" value="2" />
+                                        </td>
+                                        <td class='span1' style='text-align: center'>
+                                            <label for="feedback_responses_attributes_2_rating">n/a</label>
+                                            <input id="feedback_responses_attributes_2_rating_999" name="feedback[responses_attributes][2][rating]" type="radio" value="999" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class='actions'>
+                                <input class="btn btn-primary" name="commit" type="submit" value="Send anonymous feedback" />
+                            </div>
+                        </form>
