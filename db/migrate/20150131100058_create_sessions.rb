@@ -4,8 +4,9 @@ class CreateSessions < ActiveRecord::Migration
   		t.integer :duration
   		t.integer :downtime
   		t.integer :active
-  		t.references :user
-  		
+  		t.integer :user1
+  		t.integer :user2
+  			
   		t.timestamps
   	end 
   end
