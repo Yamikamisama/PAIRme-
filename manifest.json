@@ -2,7 +2,7 @@
     "manifest_version": 1,
     "name": "A DBC Team",
     "description": "Help DBC students Pair Program",
-    "version": "1.40",
+    "version": "1.0",
     "background": {
         "scripts": [ "popup.js"],
         "persistent": true
