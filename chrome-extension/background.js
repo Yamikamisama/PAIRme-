@@ -62,13 +62,15 @@ function startPairing(){
 }
 
 function startTimerCount(){
-  timer = setInterval(function(){
+  timer = setTimeout(function(){
     totalTimeWorking ++;
     currentInterval --;
     updateTimerCountdown();
     checkDuration();
+    clearTimeout(timer)
+    startTimerCount()
   }, 60000);
-  console.log(startTimer);
+  console.log(timer);
 }
 
 function stopTimer(){
