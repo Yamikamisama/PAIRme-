@@ -4,7 +4,7 @@ get '/signup' do
 end
 
 post '/signup' do
-  new_user = User.new(params[:new_user])
+  new_user = User.new(params[:user])
   if new_user.save
     session[:user_id] = new_user.id
   else
@@ -24,7 +24,7 @@ get '/login' do
 end
 
 post '/login' do
-  user = User.find_by(username: params[:username]).try(:authenticate, params[:password])
+  user = User.find_by(email: params[:email]).try(:authenticate, params[:password])
   if user
     session[:user_id] = user.id
   else
