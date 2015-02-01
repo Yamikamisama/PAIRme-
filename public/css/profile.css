@@ -1,52 +1,40 @@
-#user_image img{
-	width: 100%;
-	height: auto;
-	border-radius: 100%;
-	padding:10%;
+#user_image img {
+    width: 100%;
+    height: auto;
+    border-radius: 100%;
+    padding: 10%;
 }
-
-#user_header{
-	width: 100%;
-	height: 40em;
+#user_header {
+    width: 100%;
+    height: 40em;
 }
 #user_header h1 {
-	width: 100%;
-	height: auto;
-	padding:10% 10% 0 10%;
-
+    width: 100%;
+    height: auto;
+    padding: 10% 10% 0 10%;
 }
-
 #user_header h2 {
-	width: 100%;
-	height: auto;
-	padding-left: 10%;
-	color:white;
+    width: 100%;
+    height: auto;
+    padding-left: 10%;
+    color: white;
 }
-
-#profile_wrapper{
-	display: table;
-  width: 100%;
-  height: auto;
-  color: #fff;
-	background: url(../img/Dev-Bootcamp.png) no-repeat;
-  background-color: rgba(128,128,128, 0.7);
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
+#profile_wrapper {
+    display: table;
+    width: 100%;
+    height: auto;
+    color: #fff;
+    background: url(../img/Dev-Bootcamp.png) no-repeat;
+    background-color: rgba(128, 128, 128, 0.7);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
 }
-
-#user_pairs h3{
-	color:white;
-	width: 100%;
-	height: auto;
-	padding:10% 10% 0 10%;
+#user_pairs h3 {
+    color: white;
+    width: 100%;
+    height: auto;
+    padding: 10% 10% 0 10%;
 }
-
-#user_data h2{
-
-}
-
-
-
-
+#user_data h2 {}
