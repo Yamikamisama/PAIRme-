@@ -20,7 +20,7 @@ $(document).ready(function(){
 
   $('button.start-pairing').on('click', function(){
     if($('input.duration').val() !== "" ){
-      backgroundPage.setInterval(parseInt($('input.duration').val()))
+      backgroundPage.setTimeInterval(parseInt($('input.duration').val()));
       backgroundPage.startPairing();
     } else {
       alert("Please Enter A Real Number");

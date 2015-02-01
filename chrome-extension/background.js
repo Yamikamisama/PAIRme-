@@ -22,10 +22,11 @@ function getPopup(){
   popup = views[0];
 }
 
-function setInterval(interval){
+function setTimeInterval(interval){
   currentInterval = interval;
   pairingDurationMs = currentInterval * 60000;
 }
+
 function pause(){
   if(timer){
     stopTimer();
@@ -52,20 +53,18 @@ function endPairingSession(){
 }
 
 function startPairing(){
+  updateTimerCountdown();
   var date = new Date();
   startTime = date.getTime();
   currentSession = new PairingSession(user1, user2);
-  console.log(currentSession);
   sessions.push(currentSession);
-  console.log(sessions);
   startTimerCount();
-  updateTimerCountdown();
 }
 
 function startTimerCount(){
   timer = setTimeout(function(){
     totalTimeWorking ++;
-    currentInterval --;
+    currentInterval--;
     updateTimerCountdown();
     checkDuration();
     clearTimeout(timer);
@@ -100,7 +99,7 @@ function endSession(){
 }
 
 function updateTimerCountdown(){
-  popup.document.getElementsByClassName('countdown').innerHTML =currentInterval;
+  popup.document.getElementsByClassName('countdown').innerHTML =currentInterval+"";
 }
 
 function sendInfoToDatabase(){
