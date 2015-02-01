@@ -99,7 +99,7 @@ function endSession(){
 }
 
 function updateTimerCountdown(){
-  popup.document.getElementsByClassName('countdown').innerHTML =currentInterval+"";
+  popup.document.getElementsByClassName('countdown')[0].innerHTML =currentInterval;
 }
 
 function sendInfoToDatabase(){
