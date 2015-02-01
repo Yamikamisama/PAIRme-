@@ -1,48 +1,56 @@
 <html>
-  <head>
-  <script src="jquery-2.1.3.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="main.css">
-  <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+<head>
+    <script src="jquery-2.1.3.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-  <script src="popup.js"></script>
-  </head>
+    <script src="popup.js"></script>
+</head>
 
-  <body>
-  <div class="sign-in">
-    <form id="pair_login">
+<body>
+    <div class="sign-in">
+        <form id="pair_login">
+            <center>
+                <h3>PAIR 1</h3>
+                <input type="text" name="user1[email]" placeholder="email">
+                <br>
+                <input type="password" name="user1[password]" placeholder="password">
+                <br>
+                <h3>PAIR 2</h3>
+                <input type="text" name="user2[email]" placeholder="email">
+                <br>
+                <input type="password" name="user2[password]" placeholder="password">
+                <br>
+            </center>
+        </form>
+
         <center>
-        <h3>PAIR 1</h3>
-        <input type="text" name="user1[email]" placeholder="email">
-        <br>
-        <input type="password" name="user1[password]" placeholder="password">
-        <br>
-        <h3>PAIR 2</h3>
-        <input type="text" name="user2[email]" placeholder="email">
-        <br>
-        <input type="password" name="user2[password]" placeholder="password">
-        <br>
+            <a href="#about" id="pair-me-icon" class="btn btn-circle page-scroll">
+                <img src="icon2.png">
+            </a>
         </center>
-    </form>
+    </div>
 
-      <center>
-        <a href="#about" id="pair-me-icon" class="btn btn-circle page-scroll">
-          <img src="icon2.png">
-        </a>
-      </center>
-  </div>
+    <div class="duration-form">
 
-  <div class="duration-form">
+        <form>
+            <center>
+                <input type="number" class="duration" min='1' max='30'>
+            </center>
+        </form>
+        <center>
+            <button class="start-pairing" type="button">Start Pairing</button>
+            <center>
+    </div>
 
-    <form>
-     <center><input type="number" class="duration" min='1' max='30'></center>
-    </form>
-    <center><button class="start-pairing" type="button">Start Pairing</button><center>
-  </div>
+    <div class="running-session">
+        <center>
+            <button class="exit-pairing" type="button">Exit Pairing</button>
+            <div class='countdown'>0</div>
+            <button class="pause-pairing" type="button">Pause Pairing</button>
+        </center>
+    </div>
+</body>
 
-  <div class="running-session">
-    <center><button class="exit-pairing" type="button">Exit Pairing</button>
-    <div class='countdown'>0</div>
-    <button class="pause-pairing" type="button">Pause Pairing</button></center>
-  </div>
-  </body>
 </html>
