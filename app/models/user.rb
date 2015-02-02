@@ -3,8 +3,10 @@ class User < ActiveRecord::Base
 
   validates :email, :password, presence: true
 
-  has_many :sessions
-  has_many :feedbacks
+  has_many :sessions, foreign_key: :user1_id
+  has_many :sessions, foreign_key: :user2_id
+  has_many :feedbacks, foreign_key: :receiver_id
+  has_many :feedbacks, foreign_key: :giver_id
   has_many :organizations through: :organization_users
   # def paired_with(student)
   #   pair_to_look_for = [self.id, student.id]
