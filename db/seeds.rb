@@ -6,16 +6,14 @@ organization = Organization.create(name: "DBC")
   Organization.create(name: Faker::Company.name)
 end
 
-user1 = User.create(email: 'steph@steph.com', password: '123456', driver: 5, navigator: 5, organization_id: 1)
-user2 = User.create(email: 'me@me.com', password: '123456', driver: 5, navigator: 5, organization_id: 3)
+user1 = User.create(username: 'steph', email: 'steph@steph.com', password: '123456', driver_score: 5, navigator_score: 5, organization_id: 1)
+user2 = User.create(username: 'me', email: 'me@me.com', password: '123456', driver_score: 5, navigator_score: 5, organization_id: 3)
 
 9.times do
-  User.create(email: Faker::Internet.email, password: '123456', driver: 3, navigator: 4, organization_id: 3)
+  User.create(username: Faker::Internet.user_name, email: Faker::Internet.email, password: '123456', driver_score: 3, navigator_score: 4, organization_id: 3)
 end
 
 
-session = Session.create(duration: 60, downtime: 30, active: 30, user1: 1, user2: 1)
-
-feedback = Feedback.create(q1: 4, q2: 3, q3: 5, text: "lallalala", user_id: 1, session_id: 1)
+session = Session.create(duration: 60, pause_time: 30, work_time: 30, user1_driver_time: 15, user2_driver_time: 15, user1: 2, user2: 1)
 
 

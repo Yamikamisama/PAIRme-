@@ -6,6 +6,8 @@ class CreateSessions < ActiveRecord::Migration
   		t.integer :work_time
   		t.integer :user1_drive_time
   		t.integer :user2_drive_time
+      t.references :user1
+      t.references :user2
 
   		t.timestamps
   	end
