@@ -4,8 +4,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :username
       t.string :email
       t.string :password_digest
-      t.references :driver_score
-      t.references :navigator_score
+      t.integer :driver_score
+      t.integer :navigator_score
       t.references :organization
 
       t.timestamps
