@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 
   has_many :sessions
   has_many :feedbacks
-  belongs_to :organization
+  has_many :organizations through
 
   # def paired_with(student)
   #   pair_to_look_for = [self.id, student.id]
@@ -63,7 +63,7 @@ module MakePair
     arr = []
     arr = User.where(organization_id: student1.organization.id)
     arr.delete(student1)
-    random_student = arr.sample 
+    random_student = arr.sample
     Session.create(user1: student1.id, user2: random_student.id)
   end
 

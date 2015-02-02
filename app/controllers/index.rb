@@ -6,6 +6,7 @@ get '/feedback' do
 	erb :feedback_form
 end
 
-get '/profile/:id' do
-	erb :profile
+get '/profile/:id' do |id|
+		@user = User.find(id)
+		erb :profile
 end
