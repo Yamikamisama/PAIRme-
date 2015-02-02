@@ -14,6 +14,6 @@ user2 = User.create(username: 'me', email: 'me@me.com', password: '123456', driv
 end
 
 
-session = Session.create(duration: 60, pause_time: 30, work_time: 30, user1_driver_time: 15, user2_driver_time: 15, user1: 2, user2: 1)
+session = Session.create(duration: 60, pause_time: 30, work_time: 30, user1_drive_time: 15, user2_drive_time: 15, user1_id: user1, user2_id: user2);
 
 
