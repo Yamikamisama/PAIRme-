@@ -2,7 +2,7 @@ class Session < ActiveRecord::Base
   has_many :users
   has_many :feedbacks
 
-  
+
   # def add_feedback(feedback)
   #   pair_id = [self.student1.id, self.student2.id]
 
