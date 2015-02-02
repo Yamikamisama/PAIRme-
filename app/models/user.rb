@@ -5,8 +5,7 @@ class User < ActiveRecord::Base
 
   has_many :sessions
   has_many :feedbacks
-  has_many :organizations through
-
+  has_many :organizations through: :organization_users
   # def paired_with(student)
   #   pair_to_look_for = [self.id, student.id]
 
