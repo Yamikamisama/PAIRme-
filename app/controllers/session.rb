@@ -14,7 +14,12 @@ end
 
 post '/session/data' do
 	p params
-
-	# cur_session = params["session"].last_value
-	# cur_session.update(:active , :downtime, :duration)
+	info = {duration: params["session"]["totalTime"], pause_time: params["session"]["pauseTime"], work_time: params["session"]["activeTime"], user1_drive_time: params["session"]["user1DriverTime"], user2_drive_time: params["session"]["user2DriverTime"]}
+	session = Session.new(info)
+	if Session.save
+		"Success"
+		#Create URL generator for Feedback
+	else
+		500
+	end
 end

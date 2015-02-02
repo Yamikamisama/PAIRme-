@@ -44,14 +44,14 @@ function endPairingSession(){
    if(currentSession.timeWorked === 0){
     endSession();
   }
-  totalSession = new TotalSessionInfo(activeTime, inActiveTime);
+  totalSession = new TotalSessionInfo();
   sessions.forEach(function(pairSession){
     totalSession.activeTime += pairSession.timeWorked;
     totalSession.pauseTime += pairSession.timePaused;
     if(user1 === pairSession.driver){
-      totalSession.user1DriverTime += pairSession.timeWorked
+      totalSession.user1DriverTime += pairSession.timeWorked;
     } else {
-      totalSession.user2DriverTime += pairSession.timeWorked
+      totalSession.user2DriverTime += pairSession.timeWorked;
     }
   });
   totalSession.getTotalTime();
