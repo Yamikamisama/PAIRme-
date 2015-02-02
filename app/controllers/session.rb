@@ -7,7 +7,7 @@ post '/session' do
 		Session.create(user1: user1, user2: user2)
 		{ :user1 => user1.email, :user2 => user2.email}.to_json
 	else
-		500
+		"Authentication Failed Please Try Again"
 	end
 
 end

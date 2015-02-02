@@ -11,12 +11,15 @@ $(document).ready(function(){
     })
     .done(function(data){
       backgroundPage.currentView = '.duration-form';
-      backgroundPage.user1 = data['user1']
-      backgroundPage.user2 = data['user2']
+      backgroundPage.user1 = data['user1'];
+      backgroundPage.user2 = data['user2'];
       $('.sign-in').hide();
       $('.duration-form').show();
     })
-  })
+    .fail(function(data){
+      $('.sign-in').prepend("<p style='color:white;font-size:1em'><b>Authentication Failed Please Try Again</b></p>");
+    });
+  });
 
   $('button.start-pairing').on('click', function(){
     if($('input.duration').val() !== "" ){
