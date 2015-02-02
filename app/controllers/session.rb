@@ -13,8 +13,16 @@ post '/session' do
 end
 
 post '/session/data' do
-	# p "8" * 30
 	# p params
+	# counter = 0
+	# while params['session'][counter.to_s]
+	# 	if params['session'][counter.to_s]['totalTime']
+
+	# 	else
+
+	# 	end
+	# 	counter++
+	# end
 	# cur_session = params["session"].last_value
 	# cur_session.update(:active , :downtime, :duration)
 end
