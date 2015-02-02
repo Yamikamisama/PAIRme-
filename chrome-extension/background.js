@@ -1,4 +1,4 @@
-var user1, user2, currentSession, startTime, endTime, currentInterval,pairingDurationMs, timer, popup, currentView;
+var user1, user2, currentSession, startTime, endTime, currentInterval,pairingDurationMs, timer, popup, currentView, totalSession;
 var sessions = [];
 var totalTimeWorking = 0;
 
@@ -9,13 +9,17 @@ function PairingSession(user1, user2){
   this.timePaused = 0;
 }
 
-function TotalSessionInfo(activeTime, pauseTime){
-  this.totalTime = pauseTime + activeTime;
-  this.activeTime = activeTime;
-  this.pauseTime = pauseTime;
-  this.user1 = user1;
-  this.user2 = user2;
+function TotalSessionInfo(){
+  this.totalTime = 0;
+  this.activeTime = 0;
+  this.pauseTime = 0;
+  this.user1DriverTime = 0;
+  this.user2DriverTime = 0;
 }
+
+TotalSessionInfo.prototype.getTotalTime = function(){
+  this.totalTime = this.activeTime + this.pauseTime;
+};
 
 function getPopup(){
   var views = chrome.extension.getViews({ type: "popup" });
@@ -40,14 +44,18 @@ function endPairingSession(){
    if(currentSession.timeWorked === 0){
     endSession();
   }
-  var activeTime = 0;
-  var inActiveTime = 0;
+  totalSession = new TotalSessionInfo();
   sessions.forEach(function(pairSession){
-    activeTime += pairSession.timeWorked;
-    inActiveTime += pairSession.timePaused;
-  })
+    totalSession.activeTime += pairSession.timeWorked;
+    totalSession.pauseTime += pairSession.timePaused;
+    if(user1 === pairSession.driver){
+      totalSession.user1DriverTime += pairSession.timeWorked;
+    } else {
+      totalSession.user2DriverTime += pairSession.timeWorked;
+    }
+  });
+  totalSession.getTotalTime();
   stopTimer();
-  sessions.push(new TotalSessionInfo(activeTime, inActiveTime));
   currentView = null;
   sendInfoToDatabase();
 }
@@ -106,7 +114,7 @@ function sendInfoToDatabase(){
   $.ajax({
     url: 'http://localhost:9393/session/data',
     type: 'post',
-    data: {session: sessions}
+    data: {session: totalSession}
   })
   .done(function(data){
     console.log('hello');
