@@ -1,5 +1,5 @@
-class OrganizationUsers < ActiveRecord::Migration
-  def change
+class OrganizationMembers < ActiveRecord::Migration
+ def change
 		create_table :organization_users do |t|
 			t.references :user
 			t.references :organization

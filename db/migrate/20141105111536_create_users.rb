@@ -6,8 +6,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string :password_digest
       t.integer :driver_score
       t.integer :navigator_score
-      t.references :organization
-
       t.timestamps
     end
   end

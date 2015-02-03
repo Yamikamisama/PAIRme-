@@ -1,11 +1,13 @@
 class User < ActiveRecord::Base
   has_secure_password
+  has_many :organization_members
+  has_many :organizations, through: :organization_members
+  has_many :feedbacks_given, class_name: "Feedback", foreign_key: "giver_id"
+  has_many :feedbacks_received, class_name: "Feedback", foreign_key: "receiver_id"
+  has_many :user_sessions
+  has_many :sessions, through: :user_sessions
 
   validates :email, :password, presence: true
-
-  has_many :sessions
-  has_many :feedbacks
-  belongs_to :organization
 
   # def paired_with(student)
   #   pair_to_look_for = [self.id, student.id]
@@ -63,7 +65,7 @@ module MakePair
     arr = []
     arr = User.where(organization_id: student1.organization.id)
     arr.delete(student1)
-    random_student = arr.sample 
+    random_student = arr.sample
     Session.create(user1: student1.id, user2: random_student.id)
   end
 
