@@ -7,9 +7,6 @@ class CreateUsers < ActiveRecord::Migration
       t.integer :driver_score
       t.integer :navigator_score
       t.timestamps
-
-
-      t.references :organization_members
     end
   end
 end
