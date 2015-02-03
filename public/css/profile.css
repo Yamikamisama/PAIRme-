@@ -11,6 +11,7 @@
 #user_header h1 {
     width: 100%;
     height: auto;
+    margin: 0;
     padding: 10% 10% 0 10%;
 }
 #user_header h2 {
