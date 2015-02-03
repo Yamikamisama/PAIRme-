@@ -1,13 +1,11 @@
 class User < ActiveRecord::Base
   has_secure_password
+  has_many :organizations, through: :organization_members
+  has_many :feedbacks_given, class_name: "Feedback", foreign_key: "giver_id"
+  has_many :feedbacks_received, class_name: "Feedback", foreign_key: "receiver_id"
+  has_many :sessions, through: :feedbacks
 
   validates :email, :password, presence: true
-
-  has_many :sessions, foreign_key: :user1_id
-  has_many :sessions, foreign_key: :user2_id
-  has_many :feedbacks, foreign_key: :receiver_id
-  has_many :feedbacks, foreign_key: :giver_id
-  has_many :organizations through: :organization_users
   # def paired_with(student)
   #   pair_to_look_for = [self.id, student.id]
 

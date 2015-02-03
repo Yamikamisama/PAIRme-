@@ -1,9 +1,7 @@
 class Session < ActiveRecord::Base
+  has_many :intervals
   has_many :feedbacks
-  belongs_to :user1, class_name: "User"
-  belongs_to :user2, class_name: "User"
-
-
+  has_many :users, through: :feedbacks, source: "giver"
   # def add_feedback(feedback)
   #   pair_id = [self.student1.id, self.student2.id]
 

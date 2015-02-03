@@ -5,6 +5,7 @@ class Intervals < ActiveRecord::Migration
 			t.integer    :pause_time
 			t.references :driver
 			t.references :navigator
+			t.references :session
   		t.timestamps
   	end
   end

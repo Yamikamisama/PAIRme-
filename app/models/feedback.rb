@@ -1,9 +1,7 @@
 class Feedback < ActiveRecord::Base
-  belongs_to :user
-  belongs_to :session
 
   # def average(array)
-  # 	all_ratings = array 
+  # 	all_ratings = array
   #   all_ratings.reduce(:+) / all_ratings.length
   # end
 
