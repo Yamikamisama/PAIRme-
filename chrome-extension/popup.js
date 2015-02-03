@@ -17,7 +17,7 @@ $(document).ready(function(){
       $('.duration-form').show();
     })
     .fail(function(data){
-      $('.sign-in').prepend("<p style='color:white;font-size:1em'><b>Authentication Failed Please Try Again</b></p>");
+      $('.auth-error').html("<p style='color:white;font-size:1em'><b>Authentication Failed Please Try Again</b></p>");
     });
   });
 
