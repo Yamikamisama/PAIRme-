@@ -1,6 +1,6 @@
 class Organizations < ActiveRecord::Migration
   def change
-  	create_table :organization do |t|
+  	create_table :organizations do |t|
 			t.text :name
   		t.timestamps
   	end
