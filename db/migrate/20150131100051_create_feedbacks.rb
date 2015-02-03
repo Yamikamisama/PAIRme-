@@ -4,7 +4,7 @@ class CreateFeedbacks < ActiveRecord::Migration
   		t.integer :q1
   		t.integer :q2
   		t.integer :q3
-  		t.text 	  :text
+  		t.text 	  :content
       t.references :receiver
       t.references :giver
   		t.references :session
