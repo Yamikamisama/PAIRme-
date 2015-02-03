@@ -1,4 +1,8 @@
 class Feedback < ActiveRecord::Base
+  belongs_to :giver, class_name: "User"
+  belongs_to :receiver, class_name: "User"
+  belongs_to :session
+
 
   # def average(array)
   # 	all_ratings = array
