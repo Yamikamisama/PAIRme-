@@ -1,7 +1,6 @@
 class Session < ActiveRecord::Base
   has_many :intervals
   has_many :feedbacks
-  has_many :users, through: :feedbacks, source: "giver"
   # def add_feedback(feedback)
   #   pair_id = [self.student1.id, self.student2.id]
 
@@ -14,4 +13,9 @@ class Session < ActiveRecord::Base
   #     pair_id.delete(feedback.student.id)
   #   end
   # end
+  def users
+    session_users = []
+    session_users << self.intervals.first.driver
+    session_users << self.intervals.first.navigator
+  end
 end
