@@ -1,6 +1,6 @@
 class Intervals < ActiveRecord::Migration
   def change
-  	create_table :organization do |t|
+  	create_table :intervals do |t|
 			t.integer 	 :active_time
 			t.integer    :pause_time
 			t.references :driver
