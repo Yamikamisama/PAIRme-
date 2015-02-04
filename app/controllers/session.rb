@@ -12,16 +12,20 @@ post '/session' do
 end
 
 post '/session/data' do
-	p params
 	interval_info = params["session"]
 	session = Session.create()
+
 	counter = 0
 	while interval_info[counter.to_s]
 		current_interval = interval_info[counter.to_s]
 		driver = User.find_by(email:current_interval['drive'])
 		navigator = User.find_by(email:current_interval['navigate'])
 
-		session.users = [driver, navigator] if counter == 0
+		if counter == 0
+			session.users = [driver, navigator]
+			session.feedbacks.create(giver: driver, receiver: navigator)
+			session.feedbacks.create(giver: navigator, receiver: driver)
+		end
 
 		session.intervals.create(active_time: current_interval["timeWorked"], pause_time: current_interval["timePaused"], driver: driver, navigator: navigator)
 		counter += 1
