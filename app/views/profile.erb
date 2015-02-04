@@ -7,9 +7,12 @@
 
 	<div class="col-md-8">
 		<div id="user_header">
-			<h1>Michael Angelo DeCarlo</h1>
-			<h2>Cohort: Ospreys</h2>
-			<h2> <%= @user.id %> </h2>
+			<h1>Username: <%= @user.username %></h1>
+			<% @organizations.each do |org| %>
+			<h2>Organization: <%= org.name %></h2>
+			<% end %>
+			<h2>Driver Score: <%= @user.driver_score %></h2>
+			<h2>Navigator Score: <%= @user.navigator_score %> </h2>
 		</div>
 	</div>
 
@@ -18,30 +21,27 @@
 
 			<!-- modal start -->
 			<h1>Your Pairing Feedback</h1>
-			<a data-toggle="modal" href="#myModal1"><h3>PAIR 1: Jensen Bouzi</h3></a>
+			<% @feedbacks.each_with_index do |feedback, index| %>
+			<a data-toggle="modal" href="#myModal<%=index%>"><h3><%= feedback.giver.username %></h3></a>
 			<!-- Modal -->
-			<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal fade" id="myModal<%=index%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-							<h4 class="modal-title">User_names Review </h4>
+							<h4 class="modal-title"><%= feedback.giver.username %></h4>
 						</div>
 						<div class="modal-body">
-							<h1>HERE: TOMEFKSDFKDASNKFJON EIAHFHDLKF EIFOSFHJNA</h1>
-							<h1>IS: TOMEFKSDFKDASNKFJON EIAHFHDLKF EIFOSFHJNA</h1>
-							<h1>DATA: TOMEFKSDFKDASNKFJON EIAHFHDLKF EIFOSFHJNA</h1>
+							<h1>Question 1: <%= feedback.q1 %></h1>
+							<h1>Question 2: <%= feedback.q2 %></h1>
+							<h1>Question 3: <%= feedback.q3 %></h1>
+							<h1>Comments: <%= feedback.content %></h1>
 						</div>
 					</div><!-- /.modal-content -->
 				</div><!-- /.modal-dialog -->
 			</div><!-- /.modal -->
 			<!-- modal end -->
-
-			<a href="#"><h3>PAIR 2: Jensen Bouzi</h3></a>
-			<a href="#"><h3>PAIR 2: Jensen Bouzi</h3></a>
-			<a href="#"><h3>PAIR 2: Jensen Bouzi</h3></a>
-			<a href="#"><h3>PAIR 2: Jensen Bouzi</h3></a>
-			<a href="#"><h3>PAIR 2: Jensen Bouzi</h3></a>
+			<% end %>
 		</div>
 	</div>
 
