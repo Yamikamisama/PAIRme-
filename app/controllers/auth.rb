@@ -21,13 +21,16 @@ end
 
 get '/login' do
 
-  erb :"auth/login"
+  erb :profile
 end
 
 post '/login' do
-  user = User.find_by(email: params[:email]).try(:authenticate, params[:password])
-  if user
-    session[:user_id] = user.id
+  p params[:user][:username]
+  p @user = User.find_by(username: params[:user][:username])
+  puts "*" * 50
+  if @user
+    session[:user_id] = @user.id
+    redirect "/profile/#{@user.id}"
   else
     set_error("Log in failed: check username/password")
   end
