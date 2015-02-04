@@ -1,8 +1,8 @@
 #user_image img {
-    width: 100%;
+    width: 50%;
     height: auto;
     border-radius: 100%;
-    padding: 10%;
+    margin-left: 50%;
 }
 #user_header {
     width: 100%;
@@ -12,12 +12,12 @@
     width: 100%;
     height: auto;
     margin: 0;
-    padding: 10% 10% 0 10%;
+    padding: 10% 10% 0 0;
 }
 #user_header h2 {
     width: 100%;
     height: auto;
-    padding-left: 10%;
+    padding-left: 0;
     color: white;
 }
 #profile_wrapper {

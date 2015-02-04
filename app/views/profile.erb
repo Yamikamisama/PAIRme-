@@ -1,11 +1,11 @@
 <div id="profile_wrapper">
-	<div class="col-md-4">
+	<div class="col-md-6">
 		<div id="user_image">
 			<img src="/img/ma.jpg">
 		</div>
 	</div>
 
-	<div class="col-md-8">
+	<div class="col-md-6">
 		<div id="user_header">
 			<h1>Username: <%= @user.username %></h1>
 			<% @organizations.each do |org| %>
@@ -15,7 +15,7 @@
 			<h2>Navigator Score: <%= @user.navigator_score %> </h2>
 		</div>
 	</div>
-
+<hr>
 	<div class="col-md-6">
 		<div id="user_pairs">
 
@@ -37,6 +37,7 @@
 							<h1>Question 1: <%= feedback.q1 %></h1>
 							<h1>Question 2: <%= feedback.q2 %></h1>
 							<h1>Question 3: <%= feedback.q3 %></h1>
+							<br><br>
 							<h1>Comments: <%= feedback.content %></h1>
 						</div>
 					</div><!-- /.modal-content -->
