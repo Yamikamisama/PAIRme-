@@ -8,12 +8,13 @@ function drawChart() {
   ]);
 
   var options = {
-    title: 'My Daily Activities',
-    pieHole: 0.4
+    pieHole: 0.4,
+    backgroundColor:{fill: "none"},
+    legend: {textStyle: {color: "white", bold: true, fontSize: 20}}
   };
 
   var chart = new google.visualization.PieChart(document.getElementById('donut_single'));
   chart.draw(data, options);
-  $('rect').attr('fill', 'none');
+  // $('rect').attr('fill', 'none');
 }
 
