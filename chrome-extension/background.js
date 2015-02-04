@@ -9,18 +9,6 @@ function PairingSession(user1, user2){
   this.timePaused = 0;
 }
 
-function TotalSessionInfo(){
-  this.totalTime = 0;
-  this.activeTime = 0;
-  this.pauseTime = 0;
-  this.user1DriverTime = 0;
-  this.user2DriverTime = 0;
-}
-
-TotalSessionInfo.prototype.getTotalTime = function(){
-  this.totalTime = this.activeTime + this.pauseTime;
-};
-
 function getPopup(){
   var views = chrome.extension.getViews({ type: "popup" });
   popup = views[0];
@@ -44,17 +32,6 @@ function endPairingSession(){
    if(currentSession.timeWorked === 0){
     endSession();
   }
-  totalSession = new TotalSessionInfo();
-  sessions.forEach(function(pairSession){
-    totalSession.activeTime += pairSession.timeWorked;
-    totalSession.pauseTime += pairSession.timePaused;
-    if(user1 === pairSession.driver){
-      totalSession.user1DriverTime += pairSession.timeWorked;
-    } else {
-      totalSession.user2DriverTime += pairSession.timeWorked;
-    }
-  });
-  totalSession.getTotalTime();
   stopTimer();
   currentView = null;
   sendInfoToDatabase();
