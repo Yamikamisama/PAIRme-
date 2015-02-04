@@ -13,12 +13,18 @@ end
 
 post '/session/data' do
 	p params
-	info = {duration: params["session"]["totalTime"], pause_time: params["session"]["pauseTime"], work_time: params["session"]["activeTime"], user1_drive_time: params["session"]["user1DriverTime"], user2_drive_time: params["session"]["user2DriverTime"]}
-	session = Session.new(info)
-	if Session.save
-		"Success"
-		#Create URL generator for Feedback
-	else
-		500
+	interval_info = params["session"]
+	session = Session.create()
+	counter = 0
+	while interval_info[counter.to_s]
+		current_interval = interval_info[counter.to_s]
+		driver = User.find_by(email:current_interval['drive'])
+		navigator = User.find_by(email:current_interval['navigate'])
+
+		session.users = [driver, navigator] if counter == 0
+
+		session.intervals.create(active_time: current_interval["timeWorked"], pause_time: current_interval["timePaused"], driver: driver, navigator: navigator)
+		counter += 1
 	end
+	"Success"
 end
