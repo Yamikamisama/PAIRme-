@@ -12,7 +12,7 @@
  
  The extension is a bit trickier to install. Go to 'chrome://extensions/', click developer mode and then load the chrome_extension folder from the repo.
  
- ##Team Members
+##Team Members
 ####Michael Angelo
 * GitHub: https://github.com/Yamikamisama
 * LinkedIn: http://www.linkedin.com/pub/michael-angelo/9a/a93/1b0/
