@@ -31,4 +31,15 @@ post '/session/data' do
 		counter += 1
 	end
 	"Success"
+
+	sendgrid = SendGrid::Client.new(api_user: pairmeup, api_key: api_key)
+ 
+	email = SendGrid::Mail.new do |m|
+	  m.to      = 'stephanie.reaves@gmail.com'
+	  m.from    = 'stephanie.reaves@gmail.com'
+	  m.subject = 'Sending with SendGrid is Fun'
+	  m.html    = 'and easy to do anywhere, even with Ruby'
+	end
+ 
+	sendgrid.send(email)
 end

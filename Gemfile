@@ -18,6 +18,10 @@ gem 'pry'
 
 gem 'shotgun'
 
+gem 'sendgrid-ruby'
+
+gem 'dotenv-rails', :groups => [:development, :test]
+
 group :test do
   gem 'shoulda-matchers'
   gem 'rack-test'
