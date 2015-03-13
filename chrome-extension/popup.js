@@ -33,7 +33,14 @@ $(document).ready(function(){
   });
 
   $('.pause-pairing').on('click', function(){
-    backgroundPage.pause();
+    if(backgroundPage.pause()){
+      $('#pause-button').hide();
+      $('#resume-button').show();
+    }else{
+      $('#resume-button').hide();
+      $('#pause-button').show();
+    }
+
   });
 
   $('.exit-pairing').on('click', function(){
