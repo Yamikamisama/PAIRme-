@@ -49,17 +49,16 @@ function startPairing(){
 
 function startTimerCount(){
   timer = setTimeout(function(){
-    totalTimeWorking ++;
-    currentInterval--;
-    updateTimerCountdown();
+    totalTimeWorking += 1000;
+    currentInterval -= 1000;
     checkDuration();
+    updateTimerCountdown();
     clearTimeout(timer);
     startTimerCount();
-  }, 60000);
+  }, 1000);
 }
 
 function stopTimer(){
-  console.log("timer", timer);
   clearInterval(timer);
   timer = null;
 }
