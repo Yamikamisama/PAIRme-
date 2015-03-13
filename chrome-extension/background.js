@@ -100,3 +100,19 @@ function sendInfoToDatabase(){
     // chrome.tabs.create({url: data['url']})
   });
 };
+
+function formatCurrentInterval(){
+  var timeLeft = currentInterval;
+  var hours = Math.floor(timeLeft / 3600000);
+  var minutes = Math.floor((timeLeft % 3600000) / 60000);
+  var seconds = Math.floor(((timeLeft % 360000) % 60000) / 1000);
+  if(hours > 0){
+    return hours + ":" + minutes + ":" + seconds;
+  } else {
+    if(seconds >= 10){
+      return minutes + ":" + seconds;
+    } else {
+      return minutes + ":0" + seconds;
+    }
+  }
+};
