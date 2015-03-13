@@ -2,9 +2,9 @@ var user1, user2, currentSession, startTime, endTime, currentInterval,pairingDur
 var sessions = [];
 var totalTimeWorking = 0;
 
-function PairingSession(user1, user2){
-  this.drive = user1;
-  this.navigate = user2;
+function PairingSession(driver, nav){
+  this.drive = driver;
+  this.navigate = nav;
   this.timeWorked = 0;
   this.timePaused = 0;
 }
@@ -66,7 +66,7 @@ function stopTimer(){
 function checkDuration(){
   if(currentInterval === 0){
     endSession();
-    alert('Switch it ^');
+    alert("Time To Switch Roles");
     startPairing();
   }
 }
