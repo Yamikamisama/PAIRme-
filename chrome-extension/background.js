@@ -22,9 +22,10 @@ function setTimeInterval(interval){
 function pause(){
   if(timer){
     stopTimer();
+    return true;
   } else {
-    console.log("unpause");
     startTimerCount();
+    return false;
   }
 }
 
