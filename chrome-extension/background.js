@@ -15,16 +15,17 @@ function getPopup(){
 }
 
 function setTimeInterval(interval){
-  currentInterval = interval;
+  currentInterval = interval * 60000;
   pairingDurationMs = currentInterval * 60000;
 }
 
 function pause(){
   if(timer){
     stopTimer();
+    return true;
   } else {
-    console.log("unpause");
     startTimerCount();
+    return false;
   }
 }
 
@@ -48,17 +49,16 @@ function startPairing(){
 
 function startTimerCount(){
   timer = setTimeout(function(){
-    totalTimeWorking ++;
-    currentInterval--;
-    updateTimerCountdown();
+    totalTimeWorking += 1000;
+    currentInterval -= 1000;
     checkDuration();
+    updateTimerCountdown();
     clearTimeout(timer);
     startTimerCount();
-  }, 60000);
+  }, 1000);
 }
 
 function stopTimer(){
-  console.log("timer", timer);
   clearInterval(timer);
   timer = null;
 }
@@ -74,20 +74,21 @@ function checkDuration(){
 function endSession(){
   var date = new Date();
   endTime = date.getTime();
-  currentSession.timeWorked = (pairingDurationMs / 60000) -currentInterval;
+  currentSession.timeWorked = (pairingDurationMs / 60000) - currentInterval;
   currentInterval = pairingDurationMs / 60000;
-  currentSession.timePaused =  (endTime - startTime - (totalTimeWorking * 60000)) / 60000;
-  if(currentSession.timePaused == null || currentSession.timePaused < .1){
+  currentSession.timePaused =  (endTime - startTime - (totalTimeWorking)) / 60000;
+  if(currentSession.timePaused == null || currentSession.timePaused <= .5 ){
     currentSession.timePaused = 0;
-  }
+  };
   totalTimeWorking = 0;
 }
 
 function updateTimerCountdown(){
-  popup.document.getElementsByClassName('countdown')[0].innerHTML =currentInterval;
+  popup.document.getElementsByClassName('countdown')[0].innerHTML = formatCurrentInterval();
 }
 
 function sendInfoToDatabase(){
+  console.log('session', sessions);
   $.ajax({
     url: 'http://localhost:9393/session/data',
     type: 'post',
@@ -98,4 +99,20 @@ function sendInfoToDatabase(){
     sessions = [];
     // chrome.tabs.create({url: data['url']})
   });
+};
+
+function formatCurrentInterval(){
+  var timeLeft = currentInterval;
+  var hours = Math.floor(timeLeft / 3600000);
+  var minutes = Math.floor((timeLeft % 3600000) / 60000);
+  var seconds = Math.floor(((timeLeft % 360000) % 60000) / 1000);
+  if(hours > 0){
+    return hours + ":" + minutes + ":" + seconds;
+  } else {
+    if(seconds >= 10){
+      return minutes + ":" + seconds;
+    } else {
+      return minutes + ":0" + seconds;
+    }
+  }
 };
