@@ -1,8 +1,8 @@
 <!-- modal start -->
-<h1>Your Pairing Feedback</h1>
+<h1 class="pairing_header">Your Pairing Feedback</h1>
 <% @feedbacks.each_with_index do |feedback, index| %>
 <table>
-<tr><a data-toggle="modal" href="#myModal<%=index%>"><h3><%= feedback.giver.username %> | <%= feedback.created_at %></h3></a></tr>
+<tr><a data-toggle="modal" href="#myModal<%=index%>"><h3><%= feedback.giver.username %> | <%= feedback.date_display %></h3></a></tr>
 <!-- Modal -->
 </table>
 <div class="modal fade" id="myModal<%=index%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -13,11 +13,11 @@
 				<h4 class="modal-title"><%= feedback.giver.username %> | <%= feedback.created_at %></h4>
 			</div>
 			<div class="modal-body">
-				<h1>Question 1: <%= feedback.q1 %></h1>
-				<h1>Question 2: <%= feedback.q2 %></h1>
-				<h1>Question 3: <%= feedback.q3 %></h1>
+				<h1> <span class="darken">Question 1:</span> <%= feedback.q1 %></h1>
+				<h1> <span class="darken">Question 2:</span> <%= feedback.q2 %></h1>
+				<h1> <span class="darken">Question 3:</span> <%= feedback.q3 %></h1>
 				<br><br>
-				<h1>Comments: <%= feedback.content %></h1>
+				<h1> <span class="darken">Comments:</span> <%= feedback.content %></h1>
 			</div>
 		</div><!-- /.modal-content -->
 	</div><!-- /.modal-dialog -->
