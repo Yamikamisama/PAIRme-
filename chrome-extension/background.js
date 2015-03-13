@@ -15,7 +15,7 @@ function getPopup(){
 }
 
 function setTimeInterval(interval){
-  currentInterval = interval;
+  currentInterval = interval * 60000;
   pairingDurationMs = currentInterval * 60000;
 }
 
