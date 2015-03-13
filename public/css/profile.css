@@ -1,12 +1,13 @@
 #user_image img {
-    width: 50%;
+    width: 40%;
     height: auto;
     border-radius: 100%;
-    margin-left: 50%;
+    margin-top:8%;
+    float:right;
 }
 #user_header {
     width: 100%;
-    height: 33em;
+    height: 20em;
 }
 #user_header h1 {
     width: 100%;
@@ -25,17 +26,32 @@
     width: 100%;
     height: auto;
     color: #fff;
-    background: url(../img/Dev-Bootcamp.png) no-repeat;
-    background-color: rgba(128, 128, 128, 0.7);
+    background-color: #444;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
 }
+#user_pairs{
+    margin-left: 10%;
+}
+
 #user_pairs h3 {
     color: white;
     width: 100%;
     height: auto;
-    padding: 10% 10% 0 10%;
+    padding: 0 10% 0 0;
+    line-height: 1.75em;
 }
-#user_data h2 {}
+.pairing_header{
+    font-size: 2em;
+    text-decoration: underline;
+}
+
+.darken{
+    color: rgb(82, 159, 71);
+}
+
+#user_data h2 {
+
+}
