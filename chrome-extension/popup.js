@@ -15,21 +15,26 @@ $(document).ready(function(){
       backgroundPage.user2 = data['user2'];
       $('.sign-in').hide();
       $('.duration-form').show();
+      $('input').val('')
+      $('countdown').val('0');
     })
     .fail(function(data){
-      $('.auth-error').html("<p style='color:white;font-size:1em'><b>Authentication Failed Please Try Again</b></p>");
+      $('.auth-error').html("Authentication Failed Please Try Again");
+      setTimeOut(function(){$('.auth-error').empty();},5000);
     });
   });
 
-  $('button.start-pairing').on('click', function(){
-    if($('input.duration').val() !== "" ){
-      backgroundPage.setTimeInterval(parseInt($('input.duration').val()));
+  $('.start-pairing').on('click', function(){
+    var time_duration = $('input.duration').val();
+    if(time_duration !== "" && !isNaN(parseInt(time_duration))){
+      backgroundPage.setTimeInterval(parseInt(time_duration));
       backgroundPage.startPairing();
+      backgroundPage.currentView='.running-session';
+      setPopupView();
     } else {
-      alert("Please Enter A Real Number");
+      $('.interval-error').append("The Number You Entered Is Not Valid");
+      setTimeout(function(){$('.interval-error').empty();},5000);
     }
-    backgroundPage.currentView='.running-session';
-    setPopupView();
   });
 
   $('.pause-pairing').on('click', function(){
