@@ -1,7 +1,6 @@
 
-
 <div id="profile_wrapper">
-	<div class="col-md-6">
+	<div class="col-md-4">
 		<div id="user_image">
 			<img src="http://www.gravatar.com/avatar/<%=@user.email_hashify + '?s=400'%>">
 		</div>
@@ -17,7 +16,6 @@
 			<h2>Navigator Score: <%= @user.navigator_score %> </h2>
 		</div>
 	</div>
-<hr>
 	<div class="col-md-6">
 		<div id="user_pairs">
 			<%= erb :_user_modal, locals: {feedbacks: @feedbacks} %>
