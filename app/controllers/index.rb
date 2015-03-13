@@ -4,7 +4,6 @@ end
 
 get '/feedback' do
 	erb :feedback_form
-	erb :_feedback_template
 end
 
 get '/profile/:id' do |id|

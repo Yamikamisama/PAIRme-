@@ -9,39 +9,17 @@
 <% questions = ["The culture of our team/pair benefitted from having STUDENT on it.", "I benefitted technically from having STUDENT on our pair/team.", "I would happily work with STUDENT again and would recommend them to others." ]  %>
 
 <div class='questions'>
+    <% questions.each do |question| %>
     <table class='table table-striped'>
         <tr>
             <td class='span6' style='vertical-align: middle;'>
                 <div class='question-body'>
-                <%= questions[0] %></div>
-                <input id="feedback_responses_attributes_0_feedback_question_id" name="feedback[responses_attributes][0][feedback_question_id]" type="hidden" value="12" />
-            </td>
-            <td class='span1' style='text-align: center'>
-                <label for="feedback_responses_attributes_0_rating">Never</label>
-                <input id="feedback_responses_attributes_0_rating_-2" name="feedback[responses_attributes][0][rating]" type="radio" value="-2" />
-            </td>
-            <td class='span1' style='text-align: center'>
-                <label for="feedback_responses_attributes_0_rating">Rarely</label>
-                <input id="feedback_responses_attributes_0_rating_-1" name="feedback[responses_attributes][0][rating]" type="radio" value="-1" />
-            </td>
-            <td class='span1' style='text-align: center'>
-                <label for="feedback_responses_attributes_0_rating">Sometimes</label>
-                <input id="feedback_responses_attributes_0_rating_0" name="feedback[responses_attributes][0][rating]" type="radio" value="0" />
-            </td>
-            <td class='span1' style='text-align: center'>
-                <label for="feedback_responses_attributes_0_rating">Mostly</label>
-                <input id="feedback_responses_attributes_0_rating_1" name="feedback[responses_attributes][0][rating]" type="radio" value="1" />
-            </td>
-            <td class='span1' style='text-align: center'>
-                <label for="feedback_responses_attributes_0_rating">Always</label>
-                <input id="feedback_responses_attributes_0_rating_2" name="feedback[responses_attributes][0][rating]" type="radio" value="2" />
-            </td>
-            <td class='span1' style='text-align: center'>
-                <label for="feedback_responses_attributes_0_rating">n/a</label>
-                <input id="feedback_responses_attributes_0_rating_999" name="feedback[responses_attributes][0][rating]" type="radio" value="999" />
-            </td>
+                <%= question %>
+                </div>
+                <%= erb :_feedback_template %>
         </tr>
     </table>
+    <%end%>
 </div>
 
 <div class='actions'>
