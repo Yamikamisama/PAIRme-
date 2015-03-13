@@ -48,9 +48,14 @@ $(document).ready(function(){
 
   });
 
-  $('.exit-pairing').on('click', function(){
+  $('.exit-pairing').on('click', function(e){
+    e.preventDefault();
     backgroundPage.endPairingSession();
+    $('.running-session').hide();
+    $('.sign-in').show();
+    $('input').val('');
   });
+
   backgroundPage.getPopup();
   backgroundPage.updateTimerCountdown();
 
