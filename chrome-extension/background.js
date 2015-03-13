@@ -74,20 +74,21 @@ function checkDuration(){
 function endSession(){
   var date = new Date();
   endTime = date.getTime();
-  currentSession.timeWorked = (pairingDurationMs / 60000) -currentInterval;
+  currentSession.timeWorked = (pairingDurationMs / 60000) - currentInterval;
   currentInterval = pairingDurationMs / 60000;
-  currentSession.timePaused =  (endTime - startTime - (totalTimeWorking * 60000)) / 60000;
-  if(currentSession.timePaused == null || currentSession.timePaused < .1){
+  currentSession.timePaused =  (endTime - startTime - (totalTimeWorking)) / 60000;
+  if(currentSession.timePaused == null || currentSession.timePaused <= .5 ){
     currentSession.timePaused = 0;
-  }
+  };
   totalTimeWorking = 0;
 }
 
 function updateTimerCountdown(){
-  popup.document.getElementsByClassName('countdown')[0].innerHTML =currentInterval;
+  popup.document.getElementsByClassName('countdown')[0].innerHTML = formatCurrentInterval();
 }
 
 function sendInfoToDatabase(){
+  console.log('session', sessions);
   $.ajax({
     url: 'http://localhost:9393/session/data',
     type: 'post',
