@@ -1,6 +1,6 @@
 body {
     width: 200px;
-    height: 250px;
+    height: 275px;
     background-image: url('chrome-extension://oodeamamgpaimpfceocholnhappfdbkk/intro-bg.png');
 }
 h1, h2, h3, h4, h5, h6 {
@@ -18,8 +18,8 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 100%;
 }
 .btn-circle {
-    width: 70px;
-    height: 70px;
+    width: 50px;
+    height: 50px;
     margin-top: 15px;
     padding: 7px 16px;
     border: 3px solid #fff;
@@ -46,9 +46,13 @@ h1, h2, h3, h4, h5, h6 {
     color: white;
     font-size: 5em;
     font-weight: bold;
+    margin-bottom: .5em;
 }
 .duration {
-    margin-top: 45%;
+    margin-top: 30%;
+    height: 2em;
+    width: 3em;
+    font-size: 4em;
 }
 .exit-pairing {
     margin-top: 1em;
@@ -57,4 +61,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 .fa {
     color: white;
+}
+.auth-error, .interval-error{
+    color:white;
+    font-size:1em;
+    font-weight: bold;
+}
+.session-info{
+    margin-top: 3em;
 }
