@@ -34,21 +34,27 @@
   </div>
 
   <div class="duration-form">
-
+    <div class="interval-error"></div>
     <form>
      <center><input type="number" class="duration" min='1' max='30'></center>
-    </form>
-    <center><button class="start-pairing" type="button">Start Pairing</button><center>
+    </form><br>
+    <center>
+    <a href="#about" class="start-pairing btn btn-circle page-scroll">
+          <img src="icon2.png">
+    </a>
+    </center>
   </div>
 
   <div class="running-session">
     <center>
       <a class="exit-pairing"><i class="fa fa-sign-out fa-2x"></i><a><br><br>
+      <div class='session-info'>
         <div class='countdown'>0</div>
-       <button class="pause-pairing">
-        <div id="pause-button"><i class="fa fa-pause fa-2x"></i></div>
-        <div id="resume-button" style='display:none;'><i class="fa fa-play fa-2x"></i></div>
-      </button>
+        <button class="pause-pairing">
+          <div id="pause-button"><i class="fa fa-pause fa-2x"></i></div>
+          <div id="resume-button" style='display:none;'><i class="fa fa-play fa-2x"></i></div>
+        </button>
+      </div>
     </center>
 
   </div>
