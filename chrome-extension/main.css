@@ -1,6 +1,6 @@
 body {
     width: 200px;
-    height: 150px;
+    height: 250px;
     background-image: url('chrome-extension://oodeamamgpaimpfceocholnhappfdbkk/intro-bg.png');
 }
 h1, h2, h3, h4, h5, h6 {
@@ -9,6 +9,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 #pair_login {
     margin-bottom: 25%
+}
+.pause-pairing{
+    background: none;
+    width: 5em;
+    height: 5em;
+    border: 2px solid white;
+    border-radius: 100%;
 }
 .btn-circle {
     width: 70px;
@@ -44,5 +51,10 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 45%;
 }
 .exit-pairing {
-    margin-top: 30%;
+    margin-top: 1em;
+    margin-right: .5em;
+    float: right;
+}
+.fa {
+    color: white;
 }
