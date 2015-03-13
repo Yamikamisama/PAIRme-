@@ -1,19 +1,9 @@
-<h2>Give some feedback!</h2>
-<div class='control-group'>
-    <div class='controls'>
-        <textarea class="span6 autogrow" cols="40" id="feedback_body" name="feedback[body]" placeholder="Type your feedback here.  Good feedback is specific, actionable, and kind." rows="20" style="height: 100px;padding:10px">
-        </textarea>
-    </div>
-</div>
-
-<% questions = ["The culture of our team/pair benefitted from having STUDENT on it.", "I benefitted technically from having STUDENT on our pair/team.", "I would happily work with STUDENT again and would recommend them to others." ]  %>
-
 <div class='questions'>
     <table class='table table-striped'>
         <tr>
             <td class='span6' style='vertical-align: middle;'>
                 <div class='question-body'>
-                <%= questions[0] %></div>
+                Question</div>
                 <input id="feedback_responses_attributes_0_feedback_question_id" name="feedback[responses_attributes][0][feedback_question_id]" type="hidden" value="12" />
             </td>
             <td class='span1' style='text-align: center'>
@@ -43,8 +33,3 @@
         </tr>
     </table>
 </div>
-
-<div class='actions'>
-    <input class="btn btn-primary" name="commit" type="submit" value="Send anonymous feedback" />
-</div>
-</form>
