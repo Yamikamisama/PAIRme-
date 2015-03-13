@@ -9,6 +9,10 @@ class User < ActiveRecord::Base
 
   validates :email, :password, presence: true
 
+  def email_hashify
+    hash = Digest::MD5.hexdigest(email.downcase)
+  end
+
 end
 
 module MakePair
