@@ -1,6 +1,6 @@
 # PairMe^
-
- Created at a hackathon, PairMe^ is a chrome extension for creating pairing sessions.  The extension allows two users to sign in and create an interval for how long each will drive and navigate, it then prompts the users to switch on completion of the time.  When the paring session is over it emails both users with a link to a feedback form so they can give actionable, kind, and specific feedback.  This feedback goes to the database and updates their user profile page where they can view the feedback and see how they are rated as a pair Driver or Navigator.  The app will be fully launched on Monday (feb 9th) however if you’d care to look at the site you will have to pull the repo down and run 
+![](PairMe^.png)
+ Created at a hackathon, PairMe^ is a chrome extension for creating pairing sessions.  The extension allows two users to sign in and create an interval for how long each will drive and navigate, it then prompts the users to switch on completion of the time.  When the paring session is over it emails both users with a link to a feedback form so they can give actionable, kind, and specific feedback.  This feedback goes to the database and updates their user profile page where they can view the feedback and see how they are rated as a pair Driver or Navigator.
  
 `bundle install`
 
