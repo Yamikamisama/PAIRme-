@@ -12,7 +12,7 @@ gem 'activesupport', '~>4.1'
 gem 'activerecord', '~>4.1'
 gem 'bcrypt-ruby'
 gem 'rake'
-
+gem 'faker'
 gem 'pry'
 
 gem 'shotgun'
@@ -30,5 +30,4 @@ end
 
 group :test, :development do
   gem 'factory_girl'
-  gem 'faker'
 end
