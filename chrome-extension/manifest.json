@@ -1,8 +1,7 @@
 {
-    "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsMuwZSorjRRe/BAYMCCH11+pts1xndPhylBRVgLi9jCc9Al+3253VxB467uib2+QUUjptkaEOPss44F1+TEuxKF/ugTkpXtt4HmAG+lJMCR+HyayBxJal9X5zOOldr6kndja/svZYq7Zlowao4HfNjQWnajE+NwOTo27rwweD388JfT5FtyS22vuDk9Kz6IGyTkyKKvGBIc09aCq+3OktOQI/+s3n0C20K/M0BcGLhzOgvdo1fXlFF5bsma/2z7jAFv/GTfuO+KVj4+8fhGH0ODYSmzuWMPzJARbzBlCAFWz/eoR1H9NVN4vwwsVj+wDkeGO8MThSOdaaabFaTR3SwIDAQAB",
     "manifest_version": 2,
-    "name": "A DBC Team",
-    "description": "Help DBC students Pair Program",
+    "name": "Pair Me Up^",
+    "description": "Help Coders to Better Pair Program Skills",
     "version": "1.0",
     "background": {
         "scripts": [
