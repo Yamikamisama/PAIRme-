@@ -51,8 +51,8 @@ function startTimerCount(){
   timer = setTimeout(function(){
     totalTimeWorking += 1000;
     currentInterval -= 1000;
-    checkDuration();
     updateTimerCountdown();
+    checkDuration();
     clearTimeout(timer);
     startTimerCount();
   }, 1000);
