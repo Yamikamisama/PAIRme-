@@ -90,7 +90,7 @@ function updateTimerCountdown(){
 function sendInfoToDatabase(){
   console.log('session', sessions);
   $.ajax({
-    url: 'http://localhost:9393/session/data',
+    url: 'https://pair-me-up.herokuapp.com/session/data',
     type: 'post',
     data: {session: sessions}
   })

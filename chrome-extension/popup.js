@@ -1,10 +1,15 @@
 $(document).ready(function(){
   var backgroundPage = chrome.extension.getBackgroundPage();
 
+  $('.signup-link').on('click', function(e){
+    e.preventDefault();
+    backgroundPage.goToLandingPage();
+  });
+
   $('#pair-me-icon').on('click', function(e){
     e.preventDefault();
     $.ajax({
-      url: "http://localhost:9393/session",
+      url: "https://pair-me-up.herokuapp.com/session",
       type: "post",
       data: $('#pair_login').serialize(),
       dataType: 'json'
