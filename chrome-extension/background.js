@@ -116,3 +116,7 @@ function formatCurrentInterval(){
     }
   }
 };
+
+function goToLandingPage(){
+  chrome.tabs.create({ url: 'https://pair-me-up.herokuapp.com'});
+};
