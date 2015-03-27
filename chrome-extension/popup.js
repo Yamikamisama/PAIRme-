@@ -25,7 +25,7 @@ $(document).ready(function(){
     })
     .fail(function(data){
       $('.auth-error').html("Authentication Failed Please Try Again");
-      setTimeOut(function(){$('.auth-error').empty();},5000);
+      setTimeout(function(){$('.auth-error').empty();},5000);
     });
   });
 
